@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" fill="none">
+  <rect x="15" y="18" width="24" height="24" rx="6" stroke="#35D4C3" stroke-width="3" fill="rgba(53, 212, 195, 0.15)"/>
+  <rect x="23" y="26" width="8" height="8" rx="2" fill="#0062E0"/>
+  <text x="55" y="38" fill="#1C3838" font-family="'Plus Jakarta Sans', sans-serif" font-size="20" font-weight="700" letter-spacing="1.5">NEXUS</text>
+  <text x="135" y="38" fill="#5A7D7D" font-family="'Plus Jakarta Sans', sans-serif" font-size="14" font-weight="600" letter-spacing="1">FLOW</text>
+</svg>

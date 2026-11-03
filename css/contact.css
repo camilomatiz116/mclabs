@@ -1,0 +1,197 @@
+/* ==========================================================================
+   Contact Section (Light Theme)
+   ========================================================================== */
+
+.contact-page-main {
+  padding: 8rem 0 5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.contact-wrapper {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 3.5rem;
+  background: #ffffff;
+  border: 1px solid rgba(74, 122, 122, 0.14);
+  border-radius: var(--radius-xl);
+  padding: 3.5rem;
+  box-shadow: 0 15px 45px rgba(22, 54, 54, 0.07);
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.contact-info-header h2 {
+  font-size: clamp(2rem, 3vw, 2.5rem);
+  color: var(--text-dark);
+  margin: 1rem 0 0.8rem;
+}
+
+.contact-info-header p {
+  font-size: 1.05rem;
+  color: var(--text-dark-muted);
+  line-height: 1.6;
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin: 2.5rem 0;
+}
+
+.contact-detail-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: #f7fbfb;
+  border: 1px solid rgba(74, 122, 122, 0.12);
+  padding: 0.9rem 1.25rem;
+  border-radius: var(--radius-md);
+  transition: var(--transition-fast);
+}
+
+.contact-detail-item:hover {
+  border-color: var(--teal-hero-start);
+  background: #ffffff;
+  box-shadow: 0 4px 15px rgba(22, 54, 54, 0.06);
+}
+
+.contact-detail-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(104, 156, 156, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--teal-hero-end);
+  flex-shrink: 0;
+}
+
+.contact-detail-content .label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: var(--text-dark-muted);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.contact-detail-content .value {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+/* Contact Form */
+.contact-form-card {
+  background: #fdfefe;
+  border: 1px solid rgba(74, 122, 122, 0.12);
+  border-radius: var(--radius-lg);
+  padding: 2.2rem;
+  box-shadow: 0 8px 25px rgba(22, 54, 54, 0.04);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.form-group label {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #274545;
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.85rem 1.15rem;
+  background: #ffffff;
+  border: 1px solid rgba(74, 122, 122, 0.2);
+  border-radius: var(--radius-md);
+  color: var(--text-dark);
+  font-family: inherit;
+  font-size: 0.95rem;
+  transition: var(--transition-fast);
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--teal-hero-end);
+  box-shadow: 0 0 0 3px rgba(74, 122, 122, 0.15);
+}
+
+.form-control::placeholder {
+  color: #8fa6a6;
+}
+
+textarea.form-control {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.btn-submit {
+  width: 100%;
+  padding: 0.95rem 2rem;
+  border-radius: var(--radius-full);
+  background: var(--warm-orange);
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  box-shadow: 0 4px 18px rgba(242, 143, 67, 0.35);
+  transition: var(--transition-smooth);
+}
+
+.btn-submit:hover {
+  background: var(--warm-orange-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(242, 143, 67, 0.45);
+}
+
+.form-status {
+  display: none;
+  padding: 0.9rem 1.2rem;
+  border-radius: var(--radius-md);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.form-status.success {
+  display: block;
+  background: #eaf8f5;
+  border: 1px solid #36dac8;
+  color: #1a7a70;
+}
+
+.form-status.error {
+  display: block;
+  background: #fdf2f2;
+  border: 1px solid #f98080;
+  color: #b91c1c;
+}
+
+@media (max-width: 960px) {
+  .contact-wrapper {
+    grid-template-columns: 1fr;
+    padding: 2.2rem 1.5rem;
+  }
+}

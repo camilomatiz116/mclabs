@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>eMCi labs | Tu Camino Cósmico Hacia la Claridad Digital</title>
+  <meta name="description" content="Estudio de desarrollo de software boutique con estándares de misión crítica tipo NASA: desarrollo a la medida, aplicativos web y aplicaciones para Android y iOS.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/images/logo-tight.png">
+
+  <!-- Google Fonts: Cormorant Garamond & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Hoja de estilos modular -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- ==========================================
+       PARTE 1: NAVEGADOR FLOTANTE (Ancho Completo)
+       ========================================== -->
+  <header class="site-header">
+    <div class="header-container">
+      <a href="index.html" class="brand-logo-pill" aria-label="eMCi labs Inicio">
+        <img src="assets/images/logo-tight.png" alt="eMCi labs Logo" width="160" height="42">
+      </a>
+
+      <nav class="nav-pill-group" aria-label="Navegación principal">
+        <a href="index.html" class="nav-link active">Inicio</a>
+        <a href="about.html" class="nav-link">Nosotros</a>
+        <a href="services.html" class="nav-link">Servicios</a>
+        <a href="presentacion.html" class="nav-link">Presentación</a>
+        <a href="contact.html" class="nav-link">Contacto</a>
+      </nav>
+
+      <div class="nav-cta">
+        <a href="login.html" class="btn-header-login">Ingreso</a>
+        <a href="contact.html" class="btn-header-warm">Iniciar Proyecto</a>
+        <button class="mobile-toggle" aria-label="Abrir menú" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ==========================================
+         PARTE 2: HERO SECTION A PANTALLA COMPLETA
+         (Fondo azul y cian del logo de eMCi labs, de borde a borde)
+         ========================================== -->
+    <section class="hero-full-screen" aria-label="Hero Carousel">
+      
+      <!-- Controles de Flecha Slider -->
+      <button class="slider-arrow-btn slider-btn-prev" aria-label="Slide anterior">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </button>
+
+      <button class="slider-arrow-btn slider-btn-next" aria-label="Siguiente slide">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </button>
+
+      <!-- Slider Track -->
+      <div class="hero-slider-track">
+
+        <!-- SLIDE 1: Disciplina Espacial NASA (Tu Camino Cósmico) -->
+        <div class="hero-slide active" data-index="0">
+          <div class="container">
+            <div class="hero-grid">
+              
+              <!-- Columna Izquierda: Tipografía Editorial & Colores del Logo -->
+              <div class="hero-text-block">
+                <h1 class="hero-editorial-headline">
+                  <span>Tu Camino Cósmico</span>
+                  <span>A la Claridad <span class="highlight-cyan">Digital.</span></span>
+                </h1>
+
+                <p class="hero-description">
+                  En una misión espacial, un solo error de software puede costar la vida y la misión entera. En <strong>eMCi labs</strong> aplicamos esa misma disciplina de la NASA al desarrollo boutique: código blindado a la medida, tolerancia cero a fallos y aplicativos web y móviles (Android y iOS) diseñados para operar sin interrupciones.
+                </p>
+
+                <div class="hero-actions">
+                  <a href="contact.html" class="btn-primary-warm">Iniciar Proyecto</a>
+                  <a href="services.html" class="btn-glass-light">Explorar Servicios</a>
+                </div>
+
+                <!-- Píldora Flotante Inferior Izquierda con Canales Directos -->
+                <div class="hero-social-pill">
+                  <a href="https://linkedin.com" target="_blank" rel="noopener" class="social-circle-link" title="LinkedIn">in</a>
+                  <a href="https://github.com" target="_blank" rel="noopener" class="social-circle-link" title="GitHub">gh</a>
+                  <a href="mailto:contacto@emcilabs.com" class="social-circle-link" title="Email directo">@</a>
+                </div>
+              </div>
+
+              <!-- Columna Derecha: Astronauta & Tarjetas Flotantes -->
+              <div class="hero-visual-stage">
+                
+                <!-- Floating Card Superior Derecha: Spacewalk + Badge 24 -->
+                <div class="glass-floating-card card-top-right">
+                  <div class="card-top-right-inner">
+                    <div class="card-thumb-wrapper">
+                      <img src="assets/images/space-thumb.jpg" alt="Misión Espacial NASA" width="180" height="92">
+                      <span class="card-badge-counter">24</span>
+                    </div>
+                    <p class="card-desc">Protocolo de ingeniería aeroespacial con pruebas continuas y verificación estricta de código.</p>
+                  </div>
+                </div>
+
+                <!-- Astronauta en Traje Blanco y Manos en Casco -->
+                <div class="astronaut-frame">
+                  <img src="assets/images/hero-astronaut.jpg" alt="Ingeniería y Desarrollo de Software Boutique con Estándares NASA" width="440" height="480">
+                </div>
+
+                <!-- Floating Card Inferior Derecha: 1000+ Stat -->
+                <div class="glass-floating-card card-bottom-right">
+                  <div class="card-stat-number">1000+</div>
+                  <div class="card-stat-label">Horas de Misión Crítica</div>
+                  <p class="card-stat-desc">+50 proyectos a la medida operando con 99.99% de disponibilidad continua.</p>
+                  <a href="about.html" class="card-stat-link">Conoce más →</a>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- SLIDE 2: ¿Qué es Ingeniería Boutique? -->
+        <div class="hero-slide" data-index="1">
+          <div class="container">
+            <div class="hero-grid">
+              
+              <!-- Columna Izquierda: Definición e Impacto de Ingeniería Boutique -->
+              <div class="hero-text-block">
+                <h1 class="hero-editorial-headline">
+                  <span>¿Qué es la</span>
+                  <span>Ingeniería <span class="highlight-cyan">Boutique?</span></span>
+                </h1>
+
+                <p class="hero-description">
+                  A diferencia de las 'fábricas de software' masivas con plantillas genéricas y alta rotación de desarrolladores juniors, la <strong>ingeniería boutique</strong> es desarrollo artesanal de alto calibre: arquitectura diseñada desde cero para tu negocio, ingenieros senior asignados directamente a tu visión, código limpio sin deuda técnica y total soberanía de tu propiedad intelectual.
+                </p>
+
+                <div class="hero-actions">
+                  <a href="about.html" class="btn-primary-warm">Conocer el Modelo</a>
+                  <a href="services.html" class="btn-glass-light">Ver Servicios</a>
+                </div>
+
+                <!-- Píldora Flotante Inferior Izquierda con Canales Directos -->
+                <div class="hero-social-pill">
+                  <a href="https://linkedin.com" target="_blank" rel="noopener" class="social-circle-link" title="LinkedIn">in</a>
+                  <a href="https://github.com" target="_blank" rel="noopener" class="social-circle-link" title="GitHub">gh</a>
+                  <a href="mailto:contacto@emcilabs.com" class="social-circle-link" title="Email directo">@</a>
+                </div>
+              </div>
+
+              <!-- Columna Derecha: Arquitectura Boutique & Tarjetas Flotantes -->
+              <div class="hero-visual-stage">
+                
+                <!-- Floating Card Superior Derecha: Atención 1 a 1 -->
+                <div class="glass-floating-card card-top-right">
+                  <div class="card-top-right-inner">
+                    <div class="card-thumb-wrapper">
+                      <img src="assets/images/landing-mockup.jpg" alt="Artesanía y Arquitectura de Software" width="180" height="92">
+                      <span class="card-badge-counter">1:1</span>
+                    </div>
+                    <p class="card-desc">Atención directa y exclusiva: sin intermediarios ni tercerización oculta.</p>
+                  </div>
+                </div>
+
+                <!-- Imagen Representativa: Arquitectura Boutique de Software -->
+                <div class="astronaut-frame">
+                  <img src="assets/images/hero-boutique.jpg" alt="Ingeniería Boutique de Software eMCi labs" width="440" height="480">
+                </div>
+
+                <!-- Floating Card Inferior Derecha: 100% Senior -->
+                <div class="glass-floating-card card-bottom-right">
+                  <div class="card-stat-number">100%</div>
+                  <div class="card-stat-label">Talento Senior Dedicado</div>
+                  <p class="card-stat-desc">Arquitecturas concebidas para escalar a millones de usuarios sin reescribir código.</p>
+                  <a href="about.html" class="card-stat-link">Explorar Diferenciadores →</a>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- SLIDE 3: Laboratorio de Creación de Aplicaciones -->
+        <div class="hero-slide" data-index="2">
+          <div class="container">
+            <div class="hero-grid">
+              
+              <!-- Columna Izquierda: Laboratorio de Creación & Experimentación -->
+              <div class="hero-text-block">
+                <h1 class="hero-editorial-headline">
+                  <span>Laboratorio de</span>
+                  <span>Creación de <span class="highlight-cyan">Aplicaciones.</span></span>
+                </h1>
+
+                <p class="hero-description">
+                  En <strong>eMCi labs</strong> funcionamos como un laboratorio vivo de programación avanzada: investigamos, prototipamos y forjamos aplicaciones móviles (Android e iOS) y plataformas web interactivas. Convertimos requerimientos de alta complejidad en productos digitales estables, veloces y listos para producción.
+                </p>
+
+                <div class="hero-actions">
+                  <a href="contact.html" class="btn-primary-warm">Crear mi Aplicación</a>
+                  <a href="services.html" class="btn-glass-light">Nuestras Tecnologías</a>
+                </div>
+
+                <!-- Píldora Flotante Inferior Izquierda con Canales Directos -->
+                <div class="hero-social-pill">
+                  <a href="https://linkedin.com" target="_blank" rel="noopener" class="social-circle-link" title="LinkedIn">in</a>
+                  <a href="https://github.com" target="_blank" rel="noopener" class="social-circle-link" title="GitHub">gh</a>
+                  <a href="mailto:contacto@emcilabs.com" class="social-circle-link" title="Email directo">@</a>
+                </div>
+              </div>
+
+              <!-- Columna Derecha: Laboratorio de Programación & Visual Stage -->
+              <div class="hero-visual-stage">
+                
+                <!-- Floating Card Superior Derecha: Mobile & Code Lab -->
+                <div class="glass-floating-card card-top-right">
+                  <div class="card-top-right-inner">
+                    <div class="card-thumb-wrapper">
+                      <img src="assets/images/lab-thumb.jpg" alt="Laboratorio de Aplicaciones Móviles" width="180" height="92">
+                      <span class="card-badge-counter">LAB</span>
+                    </div>
+                    <p class="card-desc">Prototipado rápido y arquitecturas reactivas en entornos nativos e híbridos.</p>
+                  </div>
+                </div>
+
+                <!-- Imagen Representativa: Laboratorio de Software eMCi labs -->
+                <div class="astronaut-frame">
+                  <img src="assets/images/hero-lab.jpg" alt="Laboratorio de Creación de Aplicaciones eMCi labs" width="440" height="480">
+                </div>
+
+                <!-- Floating Card Inferior Derecha: 10x Velocidad & Calidad -->
+                <div class="glass-floating-card card-bottom-right">
+                  <div class="card-stat-number">10x</div>
+                  <div class="card-stat-label">Ciclo de Prototipado</div>
+                  <p class="card-stat-desc">De la hipótesis al aplicativo funcional con pruebas unitarias y de estrés automatizadas.</p>
+                  <a href="services.html" class="card-stat-link">Explorar Laboratorio →</a>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Indicadores de Posición (Dots) -->
+      <div class="slider-dots-container" role="tablist" aria-label="Diapositivas de Hero">
+        <button class="slider-dot active" data-slide="0" role="tab" aria-selected="true" aria-label="Slide 1: Tu Camino Cósmico"></button>
+        <button class="slider-dot" data-slide="1" role="tab" aria-selected="false" aria-label="Slide 2: ¿Qué es Ingeniería Boutique?"></button>
+        <button class="slider-dot" data-slide="2" role="tab" aria-selected="false" aria-label="Slide 3: Laboratorio de Creación de Aplicaciones"></button>
+      </div>
+
+    </section>
+
+    <!-- ==========================================
+         PARTE 3: NUESTROS CLIENTES (6 logos de assets/logos/)
+         ========================================== -->
+    <section id="clients" class="clients-section">
+      <div class="container">
+        <div class="clients-title">NUESTROS CLIENTES</div>
+      </div>
+
+      <!-- Infinite Sliding Track de lado a lado -->
+      <div class="clients-slider-wrapper" aria-label="Clientes y Alianzas de eMCi labs">
+        <div class="clients-track">
+          <!-- Primer grupo de 6 logos -->
+          <div class="clients-group">
+            <div class="client-card" title="Fábrica de Ideas">
+              <img src="assets/logos/logo1.png" alt="Fábrica de Ideas" loading="lazy">
+            </div>
+            <div class="client-card" title="Disproel">
+              <img src="assets/logos/logo2.png" alt="Disproel" loading="lazy">
+            </div>
+            <div class="client-card" title="RestaServi">
+              <img src="assets/logos/logo3.png" alt="RestaServi" loading="lazy">
+            </div>
+            <div class="client-card" title="Preinducol">
+              <img src="assets/logos/logo4.png" alt="Preinducol" loading="lazy">
+            </div>
+            <div class="client-card" title="Rapidísimo">
+              <img src="assets/logos/logo5.png" alt="Rapidísimo" loading="lazy">
+            </div>
+            <div class="client-card" title="Soberana">
+              <img src="assets/logos/logo6.jpg" alt="Soberana" loading="lazy">
+            </div>
+          </div>
+
+          <!-- Segundo grupo idéntico para loop continuo sin saltos -->
+          <div class="clients-group" aria-hidden="true">
+            <div class="client-card" title="Fábrica de Ideas">
+              <img src="assets/logos/logo1.png" alt="Fábrica de Ideas" loading="lazy">
+            </div>
+            <div class="client-card" title="Disproel">
+              <img src="assets/logos/logo2.png" alt="Disproel" loading="lazy">
+            </div>
+            <div class="client-card" title="RestaServi">
+              <img src="assets/logos/logo3.png" alt="RestaServi" loading="lazy">
+            </div>
+            <div class="client-card" title="Preinducol">
+              <img src="assets/logos/logo4.png" alt="Preinducol" loading="lazy">
+            </div>
+            <div class="client-card" title="Rapidísimo">
+              <img src="assets/logos/logo5.png" alt="Rapidísimo" loading="lazy">
+            </div>
+            <div class="client-card" title="Soberana">
+              <img src="assets/logos/logo6.jpg" alt="Soberana" loading="lazy">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================
+       PARTE 4: FOOTER (Limpio y corporativo)
+       ========================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo-pill" aria-label="eMCi labs Inicio">
+            <img src="assets/images/logo-tight.png" alt="eMCi labs Logo" width="150" height="40">
+          </a>
+          <p>Estudio de desarrollo de software boutique. Construimos software a la medida con disciplina de misión crítica, aplicativos web y aplicaciones para Android y iOS.</p>
+        </div>
+
+        <div class="footer-links-group">
+          <div class="footer-col">
+            <h5>Navegación</h5>
+            <ul>
+              <li><a href="index.html">Inicio</a></li>
+              <li><a href="about.html">Nosotros</a></li>
+              <li><a href="services.html">Servicios</a></li>
+              <li><a href="presentacion.html">Presentación Interactiva</a></li>
+              <li><a href="login.html">Ingreso a Bóveda</a></li>
+              <li><a href="contact.html">Contacto</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h5>Servicios</h5>
+            <ul>
+              <li><a href="services.html">Software Boutique</a></li>
+              <li><a href="services.html">Software a la Medida</a></li>
+              <li><a href="services.html">Aplicativos Web</a></li>
+              <li><a href="services.html">Apps Android &amp; iOS</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h5>Contacto Directo</h5>
+            <ul>
+              <li><a href="mailto:contacto@emcilabs.com">contacto@emcilabs.com</a></li>
+              <li><a href="contact.html">Enviar Mensaje</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 eMCi labs. Todos los derechos reservados.</p>
+        <div class="footer-badge">
+          Ingeniería de Software de Misión Crítica
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script defer src="js/main.js"></script>
+</body>
+</html>

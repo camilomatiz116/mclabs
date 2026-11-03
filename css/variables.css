@@ -1,0 +1,52 @@
+/* ==========================================================================
+   eMCi labs - Exact Logo Color Palette & Full-Screen Architecture
+   - Royal Blue: #0D5BC7 (from 'eM')
+   - Vibrant Cyan: #26D0CE (from 'Ci' & dot)
+   - Deep Space Navy: #071728 / #0B223D (from 'labs')
+   - Clean White: #FFFFFF
+   ========================================================================== */
+
+:root {
+  /* Exact eMCi Logo Palette */
+  --emci-blue: #0D5BC7;
+  --emci-blue-light: #2077f3;
+  --emci-blue-dark: #094498;
+  --emci-cyan: #26D0CE;
+  --emci-cyan-light: #4eedeb;
+  --emci-cyan-glow: rgba(38, 208, 206, 0.45);
+  --emci-navy: #071728;
+  --emci-navy-card: #0c233c;
+
+  /* Full Screen Hero Background (Deep Blue & Vibrant Cyan Space Agency) */
+  --hero-full-bg: radial-gradient(100% 110% at 65% 30%, #1066d6 0%, #0a3b75 50%, #06182e 100%);
+  --hero-aurora-cyan: radial-gradient(circle, rgba(38, 208, 206, 0.32) 0%, transparent 65%);
+  --hero-aurora-blue: radial-gradient(circle, rgba(13, 91, 199, 0.45) 0%, transparent 70%);
+
+  /* Warm Orange Accent from Reference Button */
+  --btn-warm-orange: #f28e42;
+  --btn-warm-orange-hover: #e07d30;
+
+  /* Surfaces & Cards */
+  --bg-page: #f4f8fc;
+  --card-white: #ffffff;
+  --card-shadow: 0 16px 40px rgba(5, 20, 38, 0.25);
+
+  /* Typography */
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --text-white: #ffffff;
+  --text-white-sub: rgba(255, 255, 255, 0.92);
+  --text-dark: #071728;
+  --text-dark-muted: #4e6580;
+
+  /* Radii */
+  --radius-full: 9999px;
+  --radius-xl: 32px;
+  --radius-lg: 20px;
+  --radius-md: 14px;
+  --radius-sm: 8px;
+
+  /* Transitions */
+  --transition-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}

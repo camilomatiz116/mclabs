@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ingreso al Portal | eMCi labs</title>
+  <meta name="description" content="Acceso seguro y privado al portal de clientes y bóveda de documentos de eMCi labs.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/images/logo-tight.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Hoja de estilos modular -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="login-page-wrapper">
+
+  <!-- Encabezado sutil para volver a inicio -->
+  <header style="padding: 1.5rem 2rem; display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 10;">
+    <a href="index.html" class="brand-logo-pill" style="background:#ffffff; padding:0.4rem 1rem; border-radius:9999px; box-shadow:0 4px 15px rgba(0,0,0,0.2);">
+      <img src="assets/images/logo-tight.png" alt="eMCi labs Logo" width="130" height="34" style="height:34px; width:auto; display:block;">
+    </a>
+    <a href="index.html" style="color: rgba(255, 255, 255, 0.8); font-size: 0.88rem; font-weight: 600; text-decoration: none; display: flex; align-items: center; gap: 0.4rem; transition: color 0.2s;" onmouseover="this.style.color='#26D0CE'" onmouseout="this.style.color='rgba(255, 255, 255, 0.8)'">
+      ← Volver al Inicio
+    </a>
+  </header>
+
+  <!-- Contenido Central de Login -->
+  <main class="login-main">
+    <div class="login-card">
+      <div class="login-header">
+        <div class="login-brand-pill">
+          <img src="assets/images/logo-tight.png" alt="eMCi labs">
+        </div>
+        <h1 class="login-title">Ingreso al Portal</h1>
+        <p class="login-subtitle">Bóveda privada de documentación de software, contratos y especificaciones técnicas.</p>
+      </div>
+
+      <!-- Alertas de estado -->
+      <div id="loginAlert" class="login-alert" role="alert"></div>
+
+      <!-- Formulario de Acceso -->
+      <form id="loginForm" class="login-form" novalidate>
+        <div class="form-group">
+          <label class="form-label" for="loginEmail">Usuario / Correo Electrónico</label>
+          <div class="form-input-wrapper">
+            <input type="email" id="loginEmail" class="form-input" placeholder="camilomatiz114@gmail.com" value="camilomatiz114@gmail.com" required autocomplete="email">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="loginPassword">
+            <span>Contraseña</span>
+          </label>
+          <div class="form-input-wrapper">
+            <input type="password" id="loginPassword" class="form-input" placeholder="••••••••••••" required autocomplete="current-password">
+            <button type="button" id="togglePasswordBtn" class="password-toggle-btn" aria-label="Mostrar u ocultar contraseña">
+              <svg id="eyeIcon" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; color: rgba(255, 255, 255, 0.75);">
+          <label style="display: flex; align-items: center; gap: 0.45rem; cursor: pointer;">
+            <input type="checkbox" id="rememberMe" checked style="accent-color: var(--emci-cyan); cursor: pointer;">
+            Recordar sesión
+          </label>
+          <span style="color: var(--emci-cyan); font-size: 0.8rem; font-weight: 600;">SSL 256-Bit</span>
+        </div>
+
+        <button type="submit" id="btnSubmitLogin" class="login-btn-submit">
+          <span>Ingresar a la Bóveda</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </button>
+      </form>
+
+      <div class="login-footer-info">
+        <p style="margin-bottom: 0.4rem;">Acceso restringido a clientes y directores de proyecto.</p>
+        <p style="color: rgba(255, 255, 255, 0.5); font-size: 0.78rem;">Soporte directo: <a href="mailto:contacto@emcilabs.com">contacto@emcilabs.com</a></p>
+      </div>
+    </div>
+  </main>
+
+  <footer style="padding: 1.5rem; text-align: center; color: rgba(255, 255, 255, 0.5); font-size: 0.8rem; position: relative; z-index: 5;">
+    &copy; 2026 eMCi labs. Sistema de Control Documental Confidencial.
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const loginForm = document.getElementById('loginForm');
+      const emailInput = document.getElementById('loginEmail');
+      const passwordInput = document.getElementById('loginPassword');
+      const togglePasswordBtn = document.getElementById('togglePasswordBtn');
+      const alertBox = document.getElementById('loginAlert');
+      const submitBtn = document.getElementById('btnSubmitLogin');
+
+      // Si ya está autenticado, enviar directo al portal
+      if (sessionStorage.getItem('emci_auth') === 'true' || localStorage.getItem('emci_auth') === 'true') {
+        window.location.href = 'portal.html';
+        return;
+      }
+
+      // Alternar visualización de contraseña
+      togglePasswordBtn.addEventListener('click', () => {
+        const isPassword = passwordInput.type === 'password';
+        passwordInput.type = isPassword ? 'text' : 'password';
+        togglePasswordBtn.innerHTML = isPassword ? `
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
+            <line x1="1" y1="1" x2="23" y2="23"></line>
+          </svg>
+        ` : `
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+            <circle cx="12" cy="12" r="3"></circle>
+          </svg>
+        `;
+      });
+
+      // Validación de Credenciales
+      loginForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = emailInput.value.trim();
+        const password = passwordInput.value.trim();
+        const remember = document.getElementById('rememberMe').checked;
+
+        // Credenciales requeridas
+        const VALID_EMAIL = 'camilomatiz114@gmail.com';
+        const VALID_PASS = '19851958Moi*';
+
+        if (!email || !password) {
+          showAlert('Por favor ingresa usuario y contraseña.', 'error');
+          return;
+        }
+
+        if (email.toLowerCase() === VALID_EMAIL.toLowerCase() && password === VALID_PASS) {
+          showAlert('Credenciales correctas. Accediendo a la Bóveda...', 'success');
+          submitBtn.disabled = true;
+          submitBtn.innerHTML = `
+            <span>Accediendo...</span>
+            <svg class="spin" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10" stroke-dasharray="32"></circle></svg>
+          `;
+
+          // Almacenar sesión
+          sessionStorage.setItem('emci_auth', 'true');
+          sessionStorage.setItem('emci_user', email);
+          if (remember) {
+            localStorage.setItem('emci_auth', 'true');
+            localStorage.setItem('emci_user', email);
+          }
+
+          setTimeout(() => {
+            window.location.href = 'portal.html';
+          }, 600);
+        } else {
+          showAlert('Usuario o contraseña incorrectos. Verifica tus credenciales.', 'error');
+          passwordInput.value = '';
+          passwordInput.focus();
+        }
+      });
+
+      function showAlert(msg, type) {
+        alertBox.className = `login-alert ${type}`;
+        alertBox.innerHTML = `
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            ${type === 'error' ? '<circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line>' : '<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline>'}
+          </svg>
+          <span>${msg}</span>
+        `;
+        alertBox.style.display = 'flex';
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+/* ==========================================================================
+   Footer Styles (Same Blue Tone as Hero Slider)
+   ========================================================================== */
+
+.site-footer {
+  border-top: 1px solid rgba(38, 208, 206, 0.25);
+  padding: 4.5rem 0 2.5rem;
+  background: var(--hero-full-bg);
+  position: relative;
+  overflow: hidden;
+  color: #ffffff;
+}
+
+/* Subtle Cosmic Aurora Glow in Footer */
+.site-footer::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  right: 5%;
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(38, 208, 206, 0.18) 0%, rgba(13, 91, 199, 0.12) 45%, transparent 70%);
+  filter: blur(70px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.site-footer::after {
+  content: '';
+  position: absolute;
+  bottom: -100px;
+  left: 2%;
+  width: 380px;
+  height: 380px;
+  background: radial-gradient(circle, rgba(13, 91, 199, 0.28) 0%, transparent 65%);
+  filter: blur(60px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.site-footer .container {
+  position: relative;
+  z-index: 2;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  margin-bottom: 3rem;
+}
+
+.footer-brand {
+  max-width: 380px;
+}
+
+/* Pill for logo to keep maximum clarity */
+.footer-brand .brand-logo-pill {
+  display: inline-flex;
+  align-items: center;
+  background: #ffffff;
+  padding: 0.5rem 1.15rem;
+  border-radius: var(--radius-full);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.footer-brand .brand-logo-pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 22px rgba(38, 208, 206, 0.35);
+}
+
+.footer-brand p {
+  margin-top: 1.2rem;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.65;
+}
+
+.footer-links-group {
+  display: flex;
+  gap: 3.5rem;
+  flex-wrap: wrap;
+}
+
+.footer-col h5 {
+  font-size: 0.92rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--emci-cyan);
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+  text-shadow: 0 0 16px rgba(38, 208, 206, 0.3);
+}
+
+.footer-col ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.footer-col a {
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.92rem;
+  transition: color var(--transition-fast), padding-left var(--transition-fast);
+}
+
+.footer-col a:hover {
+  color: #ffffff;
+  padding-left: 4px;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  padding-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.footer-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--emci-cyan);
+  background: rgba(38, 208, 206, 0.12);
+  border: 1px solid rgba(38, 208, 206, 0.35);
+  padding: 0.35rem 0.95rem;
+  border-radius: var(--radius-full);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}

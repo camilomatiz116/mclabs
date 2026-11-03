@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bóveda de Documentos | eMCi labs</title>
+  <meta name="description" content="Repositorio privado y confidencial de contratos, especificaciones y documentación de software para eMCi labs.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/images/logo-tight.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Hoja de estilos modular -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="portal-body">
+
+  <!-- ==========================================
+       TOPBAR PRIVADA
+       ========================================== -->
+  <header class="portal-topbar">
+    <div class="container portal-topbar-inner">
+      <div style="display: flex; align-items: center; gap: 1.5rem;">
+        <a href="index.html" class="brand-logo-pill" aria-label="eMCi labs Inicio">
+          <img src="assets/images/logo-tight.png" alt="eMCi labs Logo" width="135" height="36" style="height:36px; width:auto; display:block;">
+        </a>
+        <span style="font-size: 0.85rem; font-weight: 700; color: var(--emci-blue); background: #eaf3ff; padding: 0.3rem 0.8rem; border-radius: var(--radius-full);">
+          Bóveda Segura
+        </span>
+      </div>
+
+      <div class="portal-user-meta">
+        <div class="user-badge-pill">
+          <div class="user-avatar">CM</div>
+          <div class="user-details">
+            <span class="user-name">Camilo Matiz</span>
+            <span class="user-email" id="userEmailDisplay">camilomatiz114@gmail.com</span>
+          </div>
+        </div>
+
+        <button id="btnLogout" class="btn-logout" title="Cerrar sesión segura">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+            <polyline points="16 17 21 12 16 7"></polyline>
+            <line x1="21" y1="12" x2="9" y2="12"></line>
+          </svg>
+          <span>Salir</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================
+       BANNER DE BÓVEDA
+       ========================================== -->
+  <section class="portal-banner">
+    <div class="container">
+      <div class="portal-banner-content">
+        <div class="portal-badge-tag">
+          <span style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--emci-cyan); box-shadow: 0 0 8px var(--emci-cyan);"></span>
+          Repositorio Privado Confidencial
+        </div>
+        <h1 class="portal-headline">Bóveda de Documentos del Proyecto</h1>
+        <p class="portal-subtext">
+          Bienvenido al área exclusiva de documentación. Aquí se almacenarán y custodiarán los contratos legales, arquitectura de software a la medida, especificaciones técnicas y credenciales de despliegue de tu proyecto.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       CONTENIDO PRINCIPAL: STATS Y BÓVEDA
+       ========================================== -->
+  <main class="container" style="flex: 1; padding-top: 1.5rem; padding-bottom: 4rem;">
+
+    <!-- Métricas del Repositorio -->
+    <div class="portal-stats-grid">
+      <div class="portal-stat-card">
+        <span class="stat-card-number" id="totalDocsCount">6</span>
+        <span class="stat-card-label">Documentos Registrados</span>
+      </div>
+      <div class="portal-stat-card">
+        <span class="stat-card-number" style="color: #d97706;" id="pendingDocsCount">5</span>
+        <span class="stat-card-label">Por Cargar / En Redacción</span>
+      </div>
+      <div class="portal-stat-card">
+        <span class="stat-card-number" style="color: #16a34a;" id="uploadedDocsCount">1</span>
+        <span class="stat-card-label">Cargados en Bóveda</span>
+      </div>
+      <div class="portal-stat-card">
+        <span class="stat-card-number" style="color: var(--emci-cyan); font-size: 1.35rem; display: flex; align-items: center; gap: 0.4rem;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+          </svg>
+          AES-256
+        </span>
+        <span class="stat-card-label">Cifrado de Seguridad</span>
+      </div>
+    </div>
+
+    <!-- Zona Interactiva de Carga de Archivos -->
+    <div class="vault-upload-box" id="dropzoneBox">
+      <input type="file" id="fileUploadInput" multiple style="display: none;">
+      <div class="upload-icon">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+          <polyline points="17 8 12 3 7 8"></polyline>
+          <line x1="12" y1="3" x2="12" y2="15"></line>
+        </svg>
+      </div>
+      <h3 class="upload-title">¿Tienes nuevos documentos listos?</h3>
+      <p class="upload-desc">
+        Haz clic aquí o arrastra tus archivos PDF, Word o ZIP para subirlos a tu bóveda personal tan pronto los tengas disponibles.
+      </p>
+      <button type="button" class="btn-primary-warm" style="margin-top: 1rem; padding: 0.65rem 1.5rem; font-size: 0.9rem;" onclick="document.getElementById('fileUploadInput').click();">
+        Seleccionar Archivo de tu Dispositivo
+      </button>
+    </div>
+
+    <!-- Encabezado de Documentos -->
+    <div class="vault-section-title">
+      <div>
+        <h3>Documentación del Proyecto</h3>
+        <p style="color: var(--text-dark-muted); font-size: 0.92rem; margin-top: 0.2rem;">
+          Estructura de archivos y contratos para <strong>Camilo Matiz</strong>.
+        </p>
+      </div>
+      <div style="font-size: 0.85rem; color: #64748b; background: #e2e8f0; padding: 0.35rem 0.9rem; border-radius: var(--radius-full); font-weight: 600;">
+        Espacio privado
+      </div>
+    </div>
+
+    <!-- Grid de Documentos (Placeholders y Documentos Creados) -->
+    <div class="vault-docs-grid" id="documentsGrid">
+
+      <!-- Documento 1: Propuesta Comercial ACOLAP -->
+      <div class="doc-card" data-doc-id="doc-1" style="border-color: rgba(38, 208, 206, 0.45); background: rgba(38, 208, 206, 0.05); box-shadow: 0 4px 20px rgba(38, 208, 206, 0.12);">
+        <div>
+          <div class="doc-header">
+            <div class="doc-type-icon type-pdf">PDF</div>
+            <span class="doc-status-pill" id="status-doc-1" style="background: rgba(34, 197, 94, 0.15); color: #16a34a; border: 1px solid rgba(34, 197, 94, 0.35); font-weight: 700;">● Disponible</span>
+          </div>
+          <h4 class="doc-title">Propuesta Comercial ACOLAP • eMCi labs</h4>
+          <p class="doc-desc">
+            Propuesta técnica y económica integral de ingeniería de software boutique, arquitectura de sistemas y plataforma digital especializada para ACOLAP.
+          </p>
+        </div>
+        <div>
+          <div class="doc-meta">
+            <span>Formato: PDF</span>
+            <span>•</span>
+            <span>3.2 MB</span>
+            <span>•</span>
+            <span id="meta-doc-1" style="color: var(--emci-blue); font-weight: 700;">Documento Oficial</span>
+          </div>
+          <div class="doc-actions" style="display: flex; gap: 0.6rem; margin-top: 0.8rem; flex-wrap: wrap;">
+            <a href="assets/docs/propuesta-comercial-acolap.pdf" target="_blank" class="btn-doc-upload" style="background: var(--emci-blue); color: #ffffff; text-decoration: none; display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.55rem 1.1rem; border-radius: var(--radius-sm); font-weight: 600; font-size: 0.85rem; border: none; cursor: pointer;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+              <span>Ver Documento</span>
+            </a>
+            <a href="assets/docs/propuesta-comercial-acolap.pdf" download="Propuesta Comercial ACOLAP - eMCi labs.pdf" class="btn-doc-upload" style="background: #ffffff; color: var(--emci-blue); border: 1px solid rgba(13, 91, 199, 0.35); text-decoration: none; display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.55rem 1.1rem; border-radius: var(--radius-sm); font-weight: 600; font-size: 0.85rem; cursor: pointer;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              <span>Descargar PDF</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Documento 2: NDA Acuerdo de Confidencialidad -->
+      <div class="doc-card" data-doc-id="doc-2">
+        <div>
+          <div class="doc-header">
+            <div class="doc-type-icon type-pdf">PDF</div>
+            <span class="doc-status-pill status-pending" id="status-doc-2">En Redacción Legal</span>
+          </div>
+          <h4 class="doc-title">Acuerdo de Confidencialidad y Propiedad Intelectual (NDA)</h4>
+          <p class="doc-desc">
+            Cláusulas de estricta confidencialidad para la protección del código fuente, datos de negocio, algoritmos y patentes del cliente.
+          </p>
+        </div>
+        <div>
+          <div class="doc-meta">
+            <span>Formato: PDF</span>
+            <span>•</span>
+            <span id="meta-doc-2">Estado: Próximamente</span>
+          </div>
+          <div class="doc-actions">
+            <button class="btn-doc-upload" onclick="triggerCardUpload('doc-2', 'Acuerdo de Confidencialidad y Propiedad Intelectual (NDA)')">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+              <span>Adjuntar Archivo</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Documento 3: Deck Ejecutivo & Arquitectura de Software -->
+      <div class="doc-card" data-doc-id="doc-3" style="border-color: rgba(38, 208, 206, 0.45); background: rgba(38, 208, 206, 0.05); box-shadow: 0 4px 20px rgba(38, 208, 206, 0.12);">
+        <div>
+          <div class="doc-header">
+            <div class="doc-type-icon type-pdf">PDF</div>
+            <span class="doc-status-pill" id="status-doc-3" style="background: rgba(34, 197, 94, 0.15); color: #16a34a; border: 1px solid rgba(34, 197, 94, 0.35); font-weight: 700;">● Disponible</span>
+          </div>
+          <h4 class="doc-title">Deck Ejecutivo & Arquitectura de Software (Pitch Deck)</h4>
+          <p class="doc-desc">
+            Presentación interactiva completa en formato ejecutivo: filosofía boutique, casos de éxito, stack tecnológico y pilares de misión crítica.
+          </p>
+        </div>
+        <div>
+          <div class="doc-meta">
+            <span>Formato: PDF (16:9)</span>
+            <span>•</span>
+            <span>4.2 MB</span>
+            <span>•</span>
+            <span id="meta-doc-3" style="color: var(--emci-blue); font-weight: 700;">Documento Oficial</span>
+          </div>
+          <div class="doc-actions" style="display: flex; gap: 0.6rem; margin-top: 0.8rem; flex-wrap: wrap;">
+            <a href="assets/docs/presentacion-emci-labs.pdf" target="_blank" class="btn-doc-upload" style="background: var(--emci-blue); color: #ffffff; text-decoration: none; display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.55rem 1.1rem; border-radius: var(--radius-sm); font-weight: 600; font-size: 0.85rem; border: none; cursor: pointer;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+              <span>Ver Documento</span>
+            </a>
+            <a href="assets/docs/presentacion-emci-labs.pdf" download="Presentacion Arquitectura eMCi labs.pdf" class="btn-doc-upload" style="background: #ffffff; color: var(--emci-blue); border: 1px solid rgba(13, 91, 199, 0.35); text-decoration: none; display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.55rem 1.1rem; border-radius: var(--radius-sm); font-weight: 600; font-size: 0.85rem; cursor: pointer;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              <span>Descargar PDF</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Documento 4: Matriz de Entregables y Sprints -->
+      <div class="doc-card" data-doc-id="doc-4">
+        <div>
+          <div class="doc-header">
+            <div class="doc-type-icon type-custom">XLSX</div>
+            <span class="doc-status-pill status-pending" id="status-doc-4">Pendiente de Carga</span>
+          </div>
+          <h4 class="doc-title">Cronograma de Sprints y Matriz de Entregables</h4>
+          <p class="doc-desc">
+            Plan detallado de iteraciones quincenales, fechas de despliegue en staging y criterios de aceptación para aplicativos web y móviles.
+          </p>
+        </div>
+        <div>
+          <div class="doc-meta">
+            <span>Formato: XLSX/PDF</span>
+            <span>•</span>
+            <span id="meta-doc-4">Estado: Próximamente</span>
+          </div>
+          <div class="doc-actions">
+            <button class="btn-doc-upload" onclick="triggerCardUpload('doc-4', 'Cronograma de Sprints y Matriz de Entregables')">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+              <span>Adjuntar Archivo</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Documento 5: Credenciales y Llaves de API -->
+      <div class="doc-card" data-doc-id="doc-5">
+        <div>
+          <div class="doc-header">
+            <div class="doc-type-icon type-zip">ZIP</div>
+            <span class="doc-status-pill status-pending" id="status-doc-5">Bloqueado - Disponible al Despliegue</span>
+          </div>
+          <h4 class="doc-title">Paquete de Credenciales de Producción y Repositorios</h4>
+          <p class="doc-desc">
+            Archivo cifrado con credenciales de servidores en la nube, variables de entorno de base de datos y llaves de acceso a repositorios GitHub.
+          </p>
+        </div>
+        <div>
+          <div class="doc-meta">
+            <span>Formato: ZIP Cifrado</span>
+            <span>•</span>
+            <span id="meta-doc-5">Protegido por Contraseña</span>
+          </div>
+          <div class="doc-actions">
+            <button class="btn-doc-upload" onclick="triggerCardUpload('doc-5', 'Paquete de Credenciales de Producción')">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+              <span>Adjuntar Archivo</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Documento 6: Acta de Inicio de Proyecto -->
+      <div class="doc-card" data-doc-id="doc-6">
+        <div>
+          <div class="doc-header">
+            <div class="doc-type-icon type-pdf">PDF</div>
+            <span class="doc-status-pill status-ready" id="status-doc-6">Plantilla Lista</span>
+          </div>
+          <h4 class="doc-title">Acta de Inicio y Constitución de Proyecto</h4>
+          <p class="doc-desc">
+            Documento de formalización de inicio de los trabajos de ingeniería de software boutique entre eMCi labs y Camilo Matiz.
+          </p>
+        </div>
+        <div>
+          <div class="doc-meta">
+            <span>Formato: PDF</span>
+            <span>•</span>
+            <span id="meta-doc-6">Listo para anexar firmas</span>
+          </div>
+          <div class="doc-actions">
+            <button class="btn-doc-upload" onclick="triggerCardUpload('doc-6', 'Acta de Inicio y Constitución de Proyecto')">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+              <span>Adjuntar Archivo</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Banner Informativo -->
+    <div style="background: #ffffff; border-radius: var(--radius-lg); padding: 1.8rem; border-left: 4px solid var(--emci-blue); box-shadow: 0 4px 15px rgba(7, 23, 40, 0.05); display: flex; align-items: flex-start; gap: 1rem;">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--emci-blue)" stroke-width="2.2" style="flex-shrink: 0; margin-top: 2px;">
+        <circle cx="12" cy="12" r="10"></circle>
+        <line x1="12" y1="16" x2="12" y2="12"></line>
+        <line x1="12" y1="8" x2="12.01" y2="8"></line>
+      </svg>
+      <div>
+        <h5 style="color: var(--emci-navy); font-size: 1rem; font-weight: 700; margin-bottom: 0.3rem;">Custodia y Seguridad de Documentos</h5>
+        <p style="color: var(--text-dark-muted); font-size: 0.88rem; line-height: 1.6;">
+          Los documentos se mantendrán disponibles en esta bóveda privada para su consulta y descarga en cualquier momento. Puedes subir tus archivos finales haciendo clic en <strong>"Adjuntar Archivo"</strong> en cada tarjeta o utilizando la zona de carga superior.
+        </p>
+      </div>
+    </div>
+
+    <!-- ==========================================
+         SECCIÓN: PRESENTACIONES INTERACTIVAS (HTML & CSS CON ANIMACIÓN)
+         ========================================== -->
+    <section class="presentation-section" id="presentaciones">
+      <div class="presentation-section-header">
+        <div>
+          <div class="presentation-badge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+            Presentaciones Interactivas en Vivo
+          </div>
+          <h2 class="presentation-section-title">Presentaciones Interactivas del Proyecto</h2>
+          <p class="presentation-section-sub">
+            Decks interactivos construidos 100% en HTML, CSS y animaciones fluidas para exposiciones de arquitectura técnica, propuestas a clientes y pitch decks.
+          </p>
+        </div>
+
+        <div style="display: flex; gap: 0.8rem; align-items: center; flex-wrap: wrap;">
+          <a href="assets/docs/presentacion-emci-labs.pdf" download="Presentacion Arquitectura eMCi labs.pdf" target="_blank" class="btn-primary-warm" style="background: rgba(38, 208, 206, 0.15); color: var(--emci-cyan); border: 1px solid rgba(38, 208, 206, 0.4); padding: 0.65rem 1.4rem; font-size: 0.88rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; border-radius: var(--radius-sm); font-weight: 600;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            Descargar Deck (PDF)
+          </a>
+          <a href="presentacion.html" target="_blank" class="btn-primary-warm" style="padding: 0.65rem 1.4rem; font-size: 0.88rem; text-decoration: none;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 3h6v6"></path><path d="M10 14L21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg>
+            Abrir Deck en Pantalla Completa
+          </a>
+        </div>
+      </div>
+
+      <!-- DECK INTERACTIVO EMBEBIDO -->
+      <div class="interactive-deck-container" id="interactiveDeck">
+        
+        <!-- Barra de Progreso Superior -->
+        <div class="deck-progress-bar">
+          <div class="deck-progress-fill" id="deckProgressFill"></div>
+        </div>
+
+        <!-- Barra Superior del Deck -->
+        <div class="deck-topbar">
+          <div class="deck-brand-tag">
+            <span class="deck-live-pulse"></span>
+            <span>eMCi labs • Architecture Deck v2.4</span>
+          </div>
+
+          <div class="deck-actions-right">
+            <a href="assets/docs/presentacion-emci-labs.pdf" download="Presentacion Arquitectura eMCi labs.pdf" target="_blank" class="deck-btn-icon" style="text-decoration: none;" title="Descargar Presentación en PDF">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              <span>Descargar PDF</span>
+            </a>
+            <button class="deck-btn-icon" id="btnToggleDeckFullscreen" title="Ver en pantalla completa">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg>
+              <span>Maximizar</span>
+            </button>
+            <button class="deck-btn-icon" id="btnAutoPlayDeck" title="Reproducción automática">
+              <svg id="autoPlayIcon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+              <span id="autoPlayText">Auto-Play</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Escenario de Diapositivas -->
+        <div class="deck-stage">
+
+          <!-- SLIDE 0: Portada Inicial con Gran Logo de eMCi labs -->
+          <div class="pres-slide active" data-slide-idx="0">
+            <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; min-height: 490px; padding: 2.5rem 1.5rem;">
+              
+              <div style="display: inline-flex; align-items: center; gap: 0.6rem; background: rgba(38, 208, 206, 0.12); border: 1px solid rgba(38, 208, 206, 0.35); padding: 0.45rem 1.35rem; border-radius: 9999px; margin-bottom: 2rem;">
+                <span style="width: 8px; height: 8px; border-radius: 50%; background: var(--emci-cyan); box-shadow: 0 0 10px var(--emci-cyan);"></span>
+                <span style="font-size: 0.85rem; font-weight: 700; color: var(--emci-cyan); letter-spacing: 0.08em; text-transform: uppercase;">Diapositiva 01 • Portada Corporativa</span>
+              </div>
+
+              <!-- Gran Logo eMCi labs en Cápsula Blanca Flotante y Resplandor -->
+              <div style="background: #ffffff; padding: 2rem 4.5rem; border-radius: 9999px; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 24px 60px rgba(0,0,0,0.5), 0 0 50px rgba(38,208,206,0.45); margin-bottom: 2.2rem; transform: scale(1.08); transition: transform 0.3s ease;">
+                <img src="assets/images/logo-tight.png" alt="eMCi labs" style="height: 85px; width: auto; display: block;">
+              </div>
+
+              <h2 style="font-family: var(--font-serif); font-size: clamp(2.4rem, 4.5vw, 3.8rem); font-weight: 700; color: #ffffff; line-height: 1.15; margin-bottom: 1.1rem; max-width: 900px;">
+                Ingeniería de Software Boutique <br><span class="highlight-cyan">&amp; Arquitectura de Misión Crítica</span>
+              </h2>
+
+              <p style="font-size: 1.15rem; color: rgba(255, 255, 255, 0.88); max-width: 720px; line-height: 1.6; margin-bottom: 2.2rem;">
+                Plataformas de alta disponibilidad, desarrollo a la medida y soluciones SaaS diseñadas para potenciar el ADN de tu negocio.
+              </p>
+
+              <div style="display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; justify-content: center;">
+                <div style="font-size: 0.92rem; color: rgba(255, 255, 255, 0.85); display: flex; align-items: center; gap: 0.6rem; background: rgba(255, 255, 255, 0.08); padding: 0.6rem 1.6rem; border-radius: 9999px; border: 1px solid rgba(255, 255, 255, 0.18);">
+                  <span style="color: var(--emci-cyan); font-weight: 800;">✦</span>
+                  <span>Con más de 10 Años de Experiencia</span>
+                </div>
+                <button onclick="goNext()" class="btn-primary-warm" style="padding: 0.75rem 2rem; font-size: 1rem; font-weight: 700; cursor: pointer; border: none; display: inline-flex; align-items: center; gap: 0.6rem; border-radius: 9999px; box-shadow: 0 10px 25px rgba(242,142,66,0.35);">
+                  <span>Iniciar Presentación</span>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- SLIDE 1: Bienvenido a eMCi labs (Slogan & Filosofía Boutique) -->
+          <div class="pres-slide" data-slide-idx="1">
+            <div class="slide-grid-2col">
+              <div>
+                <span class="slide-category-tag">Diapositiva 02 • Bienvenida &amp; Propuesta</span>
+                <h3 class="slide-main-title">
+                  Bienvenido a <span class="highlight-cyan">eMCi labs.</span>
+                </h3>
+                
+                <div class="slogan-highlight-box">
+                  <p class="slogan-text">"Ingeniería Boutique: Diseñamos software a la medida y soluciones SaaS que se acoplan al ADN de tu negocio."</p>
+                </div>
+
+                <p class="slide-main-desc">
+                  Somos un estudio de ingeniería de software de alta gama y misión crítica. Ayudamos a empresas a trascender las limitaciones mediante plataformas personalizadas y modelos SaaS concebidos para sus procesos reales.
+                </p>
+
+                <div class="slide-highlights-list">
+                  <div class="slide-highlight-item">
+                    <span style="color:var(--emci-cyan); font-weight:800;">✓</span>
+                    <span><strong>100% Hecho a la Medida:</strong> Cero plantillas recicladas ni código genérico.</span>
+                  </div>
+                  <div class="slide-highlight-item">
+                    <span style="color:var(--emci-cyan); font-weight:800;">✓</span>
+                    <span><strong>Ingeniería Boutique 1:1:</strong> Trato directo con arquitectos senior dedicados.</span>
+                  </div>
+                  <div class="slide-highlight-item">
+                    <span style="color:var(--emci-cyan); font-weight:800;">✓</span>
+                    <span><strong>Acompañamiento Continuo:</strong> Crecemos y evolucionamos a la par de tu empresa.</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="slide-visual-preview">
+                <div class="code-simulation-header">
+                  <span class="dot-code dot-red"></span>
+                  <span class="dot-code dot-yellow"></span>
+                  <span class="dot-code dot-green"></span>
+                  <span style="font-size:0.75rem; color:rgba(255,255,255,0.6); margin-left:8px;">emci_boutique_manifest.ts</span>
+                </div>
+                <div class="animated-code-lines">
+                  <p><span class="code-keyword">const</span> <span class="code-func">studio</span> = {</p>
+                  <p>&nbsp;&nbsp;name: <span class="code-str">"eMCi labs"</span>,</p>
+                  <p>&nbsp;&nbsp;philosophy: <span class="code-str">"Boutique Engineering"</span>,</p>
+                  <p>&nbsp;&nbsp;precisionEngineering: <span class="code-keyword">true</span>,</p>
+                  <p>&nbsp;&nbsp;customPlatforms: <span class="code-keyword">true</span>,</p>
+                  <p>&nbsp;&nbsp;intelligentSaaS: <span class="code-keyword">true</span>,</p>
+                  <p>&nbsp;&nbsp;uptimeGuarantee: <span class="code-str">"99.99%"</span></p>
+                  <p>};</p>
+                </div>
+
+                <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.12); display: flex; justify-content: space-between; align-items: center;">
+                  <div>
+                    <div style="font-size:1.6rem; font-weight:800; color:var(--emci-cyan);">99.9%</div>
+                    <div style="font-size:0.75rem; color:rgba(255,255,255,0.7);">Alta Disponibilidad</div>
+                  </div>
+                  <div>
+                    <div style="font-size:1.6rem; font-weight:800; color:#f28e42;">100%</div>
+                    <div style="font-size:0.75rem; color:rgba(255,255,255,0.7);">Senior Engineering</div>
+                  </div>
+                  <div>
+                    <div style="font-size:1.6rem; font-weight:800; color:#38bdf8;">0%</div>
+                    <div style="font-size:0.75rem; color:rgba(255,255,255,0.7);">Deuda Técnica</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- SLIDE 2: Quiénes Somos (Con Más de 10 Años de Experiencia) -->
+          <div class="pres-slide" data-slide-idx="2">
+            <div class="slide-grid-2col">
+              <div>
+                <span class="slide-category-tag">Diapositiva 03 • Experiencia &amp; Quiénes Somos</span>
+                <h3 class="slide-main-title" style="font-size: clamp(2.2rem, 3.2vw, 3rem); margin-bottom: 0.9rem;">
+                  Con más de 10 Años de Experiencia <br><span class="highlight-cyan">en Ingeniería y Tecnología.</span>
+                </h3>
+                
+                <p class="slide-main-desc" style="margin-bottom: 1.1rem; font-size: 1rem; line-height: 1.7;">
+                  Contamos con <strong>más de 10 años de experiencia</strong> acumulada en desarrollo tecnológico, arquitectura de software y diseño de sistemas de alto rendimiento. Nuestra misión es sustituir el software rígido e ineficiente por plataformas de ingeniería boutique hechas con rigor y devoción por los procesos reales de cada cliente.
+                </p>
+
+                <p class="slide-main-desc" style="margin-bottom: 1.35rem; font-size: 0.95rem; line-height: 1.65; color: rgba(255, 255, 255, 0.8);">
+                  Nos especializamos en resolver retos operativos complejos mediante soluciones a la medida y arquitecturas SaaS escalables, asegurando estabilidad continua, velocidad y eficiencia en cada despliegue.
+                </p>
+
+                <div class="slide-highlights-list">
+                  <div class="slide-highlight-item">
+                    <span style="color:var(--emci-cyan); font-weight:800;">✦</span>
+                    <span><strong>Rigor de Misión Crítica:</strong> Cero tolerancia a errores en producción, seguridad sólida y máxima disponibilidad operativa.</span>
+                  </div>
+                  <div class="slide-highlight-item">
+                    <span style="color:var(--emci-cyan); font-weight:800;">✦</span>
+                    <span><strong>Soluciones a la Medida y SaaS:</strong> Plataformas concebidas para el flujo exacto de tu negocio, escalables y eficientes.</span>
+                  </div>
+                  <div class="slide-highlight-item">
+                    <span style="color:var(--emci-cyan); font-weight:800;">✦</span>
+                    <span><strong>Ingeniería Boutique Humana:</strong> Comunicación directa 1:1 con ingenieros senior, con acompañamiento cercano en cada etapa.</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Columna Derecha: Tarjeta Visual de Pilares & Madurez Técnica -->
+              <div class="slide-visual-preview" style="padding: 1.8rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.4rem; border-bottom: 1px solid rgba(255,255,255,0.12); padding-bottom: 0.9rem;">
+                  <div style="display: flex; align-items: center; gap: 0.6rem;">
+                    <span style="display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: var(--emci-cyan); box-shadow: 0 0 10px var(--emci-cyan);"></span>
+                    <span style="font-size: 0.82rem; font-weight: 700; color: #ffffff; letter-spacing: 0.05em; text-transform: uppercase;">Pilares &amp; Madurez Técnica</span>
+                  </div>
+                  <span style="font-size: 0.78rem; color: var(--emci-cyan); background: rgba(38,208,206,0.12); padding: 0.25rem 0.65rem; border-radius: 9999px; font-weight: 700;">+10 Años de Experiencia</span>
+                </div>
+
+                <!-- Pilares Verticales -->
+                <div style="display: flex; flex-direction: column; gap: 1.1rem; position: relative;">
+                  
+                  <!-- Pilar 1 -->
+                  <div style="display: flex; gap: 1rem; align-items: flex-start;">
+                    <div style="width: 48px; height: 48px; border-radius: var(--radius-md); background: rgba(13, 91, 199, 0.3); border: 1px solid var(--emci-blue); display: flex; flex-direction: column; align-items: center; justify-content: center; flex-shrink: 0;">
+                      <span style="font-size: 0.68rem; color: rgba(255,255,255,0.7); line-height: 1;">EXP</span>
+                      <strong style="font-size: 0.95rem; color: #ffffff; line-height: 1;">+10</strong>
+                    </div>
+                    <div>
+                      <h4 style="font-size: 0.98rem; font-weight: 700; color: #ffffff; margin-bottom: 0.2rem;">Década de Trayectoria Comprobada</h4>
+                      <p style="font-size: 0.82rem; color: rgba(255,255,255,0.75); line-height: 1.45;">Experiencia acumulada en arquitectura cloud, microservicios, bases de datos transaccionales e integración de hardware y APIs.</p>
+                    </div>
+                  </div>
+
+                  <!-- Pilar 2 -->
+                  <div style="display: flex; gap: 1rem; align-items: flex-start;">
+                    <div style="width: 48px; height: 48px; border-radius: var(--radius-md); background: rgba(242, 142, 66, 0.2); border: 1px solid #f28e42; display: flex; flex-direction: column; align-items: center; justify-content: center; flex-shrink: 0;">
+                      <span style="font-size: 0.65rem; color: rgba(255,255,255,0.7); line-height: 1;">DEV</span>
+                      <strong style="font-size: 0.85rem; color: #f28e42; line-height: 1;">SaaS</strong>
+                    </div>
+                    <div>
+                      <h4 style="font-size: 0.98rem; font-weight: 700; color: #ffffff; margin-bottom: 0.2rem;">Ingeniería de Software de Precisión</h4>
+                      <p style="font-size: 0.82rem; color: rgba(255,255,255,0.75); line-height: 1.45;">Desarrollo de sistemas a la medida y ecosistemas SaaS empresariales que eliminan cuellos de botella y fricción operativa.</p>
+                    </div>
+                  </div>
+
+                  <!-- Pilar 3 -->
+                  <div style="display: flex; gap: 1rem; align-items: flex-start; background: rgba(38, 208, 206, 0.12); padding: 0.75rem; border-radius: var(--radius-md); border: 1px solid rgba(38, 208, 206, 0.4);">
+                    <div style="width: 48px; height: 48px; border-radius: var(--radius-md); background: var(--emci-cyan); display: flex; flex-direction: column; align-items: center; justify-content: center; flex-shrink: 0; color: var(--emci-navy);">
+                      <span style="font-size: 0.68rem; font-weight: 800; line-height: 1;">OPS</span>
+                      <strong style="font-size: 0.95rem; font-weight: 900; line-height: 1;">24/7</strong>
+                    </div>
+                    <div>
+                      <h4 style="font-size: 0.98rem; font-weight: 800; color: var(--emci-cyan); margin-bottom: 0.2rem;">Operación Continua &amp; Alta Resiliencia</h4>
+                      <p style="font-size: 0.82rem; color: #ffffff; line-height: 1.45;">Sistemas diseñados para soportar alto tráfico y transacciones simultáneas con tolerancia cero a caídas de servicio.</p>
+                    </div>
+                  </div>
+
+                </div>
+
+                <!-- Indicadores de Fondo -->
+                <div style="margin-top: 1.3rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.12); display: flex; justify-content: space-between; text-align: center;">
+                  <div>
+                    <div style="font-size: 1.4rem; font-weight: 800; color: var(--emci-cyan);">+10</div>
+                    <div style="font-size: 0.74rem; color: rgba(255,255,255,0.7);">Años de Experiencia</div>
+                  </div>
+                  <div>
+                    <div style="font-size: 1.4rem; font-weight: 800; color: #f28e42;">100%</div>
+                    <div style="font-size: 0.74rem; color: rgba(255,255,255,0.7);">Hecho a la Medida</div>
+                  </div>
+                  <div>
+                    <div style="font-size: 1.4rem; font-weight: 800; color: #38bdf8;">100%</div>
+                    <div style="font-size: 0.74rem; color: rgba(255,255,255,0.7);">Talento Senior</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- SLIDE 3: Manifiesto: Ingeniería Boutique & SaaS Inteligente -->
+          <div class="pres-slide" data-slide-idx="3">
+            <div>
+              <span class="slide-category-tag">Diapositiva 04 • Nuestra Filosofía</span>
+              <h3 class="slide-main-title" style="font-size: 2.5rem; margin-bottom: 0.8rem;">
+                Adaptamos la Plataforma a Ti, <span class="highlight-cyan">Software a la Medida y SaaS Inteligente.</span>
+              </h3>
+              <p class="slide-main-desc" style="margin-bottom: 1.5rem;">
+                Desarrollamos soluciones a la medida y modelos SaaS avanzados para que no tengas que amoldar tu operación a sistemas inflexibles. En <strong>eMCi labs</strong> construimos tecnología ágil alrededor de tus procesos reales.
+              </p>
+
+              <div class="comparison-grid">
+                <div class="compare-card traditional">
+                  <h4 class="compare-title">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                    Soluciones Rígidas Convencionales
+                  </h4>
+                  <ul class="compare-list">
+                    <li>❌ Obliga a tu equipo a adaptarse a pantallas rígidas y flujos prefabricados.</li>
+                    <li>❌ Mensualidades perpetuas que se incrementan cada vez que añades usuarios.</li>
+                    <li>❌ No permite integrar impresoras térmicas, hardware especializado o QR propios.</li>
+                    <li>❌ Cero personalización profunda; tus sugerencias quedan en una lista de espera.</li>
+                  </ul>
+                </div>
+
+                <div class="compare-card boutique">
+                  <h4 class="compare-title">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    Ingeniería Boutique eMCi labs
+                  </h4>
+                  <ul class="compare-list">
+                    <li>✨ Ecosistema concebido milimétricamente sobre el flujo real de tu equipo.</li>
+                    <li>✨ Integración total al unísono: apps móviles, comandas, QR y facturación conectadas.</li>
+                    <li>✨ Soluciones y plataformas SaaS diseñadas específicamente para tu industria.</li>
+                    <li>✨ Trato 1 a 1 con ingenieros senior que evolucionan la plataforma contigo.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- SLIDE 4: Caso de Éxito 1 — RestaServi -->
+          <div class="pres-slide" data-slide-idx="4">
+            <div>
+              <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.8rem; flex-wrap: wrap;">
+                <span class="slide-category-tag" style="margin-bottom: 0;">Diapositiva 05 • Caso de Éxito Gastronómico</span>
+                <div style="background: #ffffff; padding: 0.35rem 0.95rem; border-radius: 9999px; display: inline-flex; align-items: center; box-shadow: 0 4px 15px rgba(0,0,0,0.25);">
+                  <img src="assets/logos/logo3.png" alt="RestaServi Logo" style="height: 24px; width: auto; object-fit: contain; display: block;">
+                </div>
+              </div>
+              <h3 class="slide-main-title" style="font-size: 2.3rem; margin-bottom: 0.6rem;">
+                RestaServi: <span class="highlight-cyan">Orquestación Digital</span> para Restaurantes al Unísono.
+              </h3>
+              <p class="slide-main-desc" style="margin-bottom: 1.2rem;">
+                En RestaServi eliminamos la comanda en papel para crear una plataforma que conecta meseros, cocina y caja al instante sin fricción ni demoras.
+              </p>
+
+              <!-- Flujo de 4 pasos de RestaServi -->
+              <div class="restaservi-flow-grid">
+                <div class="flow-step-card">
+                  <span class="flow-step-number">01</span>
+                  <div class="flow-step-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+                  </div>
+                  <h4 class="flow-step-title">Mesero en App Móvil</h4>
+                  <p class="flow-step-desc">El mesero toma el pedido en mesa desde la app digital. Adiós a las notas en papel y a los errores de caligrafía.</p>
+                </div>
+
+                <div class="flow-step-card">
+                  <span class="flow-step-number">02</span>
+                  <div class="flow-step-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+                  </div>
+                  <h4 class="flow-step-title">Impresión en Cocina</h4>
+                  <p class="flow-step-desc">El pedido se transmite en tiempo real a cocina y se imprime de inmediato en la impresora térmica de comandas.</p>
+                </div>
+
+                <div class="flow-step-card">
+                  <span class="flow-step-number">03</span>
+                  <div class="flow-step-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h24s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+                  </div>
+                  <h4 class="flow-step-title">Notificación Plato Listo</h4>
+                  <p class="flow-step-desc">Cocina marca la orden terminada con un solo tap; el mesero recibe alerta al instante para servir a la mesa.</p>
+                </div>
+
+                <div class="flow-step-card">
+                  <span class="flow-step-number">04</span>
+                  <div class="flow-step-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line></svg>
+                  </div>
+                  <h4 class="flow-step-title">Entrega & Facturación</h4>
+                  <p class="flow-step-desc">El mesero confirma la entrega y el sistema en caja factura automáticamente sin filas ni recálculos manuales.</p>
+                </div>
+              </div>
+
+              <!-- Banner de Resultados -->
+              <div class="case-metric-banner">
+                <div class="case-metric-stat">
+                  <div class="case-stat-big">12</div>
+                  <div class="case-stat-text">
+                    <strong>Restaurantes en Operación Activa</strong><br>
+                    Utilizando RestaServi a diario sin interrupciones.
+                  </div>
+                </div>
+                <div class="case-metric-stat">
+                  <div class="case-stat-big" style="color:#22c55e;">0</div>
+                  <div class="case-stat-text">
+                    <strong>Comandas Extraviadas</strong><br>
+                    Sincronización digital al unísono de mesa a cocina.
+                  </div>
+                </div>
+                <div class="case-metric-stat">
+                  <div class="case-stat-big" style="color:#f28e42;">-40%</div>
+                  <div class="case-stat-text">
+                    <strong>Tiempos de Espera</strong><br>
+                    Mayor rotación de mesas y satisfacción del comensal.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- SLIDE 5: Caso de Éxito 2 — Disproel -->
+          <div class="pres-slide" data-slide-idx="5">
+            <div>
+              <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.8rem; flex-wrap: wrap;">
+                <span class="slide-category-tag" style="margin-bottom: 0;">Diapositiva 06 • Caso de Éxito Industrial</span>
+                <div style="background: #ffffff; padding: 0.35rem 0.95rem; border-radius: 9999px; display: inline-flex; align-items: center; box-shadow: 0 4px 15px rgba(0,0,0,0.25);">
+                  <img src="assets/logos/logo2.png" alt="Disproel Logo" style="height: 24px; width: auto; object-fit: contain; display: block;">
+                </div>
+              </div>
+              <h3 class="slide-main-title" style="font-size: 2.3rem; margin-bottom: 0.6rem;">
+                Disproel: <span class="highlight-cyan">Suite Corporativa</span> y Control Operativo.
+              </h3>
+              <p class="slide-main-desc" style="margin-bottom: 1.2rem;">
+                Diseñamos e implementamos un ecosistema digital integral que centraliza desde la presencia web hasta la trazabilidad en campo y la seguridad laboral.
+              </p>
+
+              <div class="disproel-grid">
+                <div class="disproel-card">
+                  <span class="disproel-card-badge">01 • Presencia</span>
+                  <h4 class="disproel-card-title">Portal Web Corporativo</h4>
+                  <p class="disproel-card-desc">Plataforma institucional de alta velocidad y diseño editorial con catálogo de servicios y captación de clientes.</p>
+                </div>
+
+                <div class="disproel-card">
+                  <span class="disproel-card-badge">02 • Trazabilidad</span>
+                  <h4 class="disproel-card-title">Plataforma de Proyectos y QR</h4>
+                  <p class="disproel-card-desc">Sistema de control de obras en campo con generación y lectura de códigos QR para seguimiento en tiempo real.</p>
+                </div>
+
+                <div class="disproel-card">
+                  <span class="disproel-card-badge">03 • Gestión Comercial</span>
+                  <h4 class="disproel-card-title">Sistema CRM a la Medida</h4>
+                  <p class="disproel-card-desc">Control total del embudo de ventas, seguimiento de cotizaciones, clientes y métricas comerciales sin software de terceros.</p>
+                </div>
+
+                <div class="disproel-card">
+                  <span class="disproel-card-badge">04 • Normativa Legal</span>
+                  <h4 class="disproel-card-title">Sistema SG-SST</h4>
+                  <p class="disproel-card-desc">Digitalización de Seguridad y Salud en el Trabajo: inspecciones, matriz de riesgos laborales y auditorías.</p>
+                </div>
+
+                <div class="disproel-card" style="border-color: rgba(245, 158, 11, 0.4); background: rgba(245, 158, 11, 0.08);">
+                  <span class="disproel-card-badge active-dev">05 • En Desarrollo Activo</span>
+                  <h4 class="disproel-card-title">Gestión Documental Avanzada</h4>
+                  <p class="disproel-card-desc">Bóveda digital de archivo técnico, actas de obra, certificados y expedientes con control estricto de versiones y permisos.</p>
+                </div>
+
+                <div class="disproel-card" style="display: flex; flex-direction: column; justify-content: center; background: rgba(13, 91, 199, 0.2); border-color: var(--emci-blue);">
+                  <div style="font-size: 1.15rem; font-weight: 800; color: #ffffff; margin-bottom: 0.4rem;">Arquitectura Unificada</div>
+                  <p style="font-size: 0.85rem; color: rgba(255,255,255,0.8); line-height: 1.5;">Todos los módulos operan bajo una base de datos segura y un panel de administración unificado para la dirección.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- SLIDE 6: Tu Próximo Proyecto con eMCi labs -->
+          <div class="pres-slide" data-slide-idx="6">
+            <div class="slide-grid-2col">
+              <div>
+                <span class="slide-category-tag">Diapositiva 07 • Próximos Pasos</span>
+                <h3 class="slide-main-title" style="font-size: 2.4rem; margin-bottom: 0.8rem;">
+                  Estamos Contigo, <span class="highlight-cyan">Siempre a Tu Lado.</span>
+                </h3>
+                <p class="slide-main-desc">
+                  Si tu negocio tiene un flujo de trabajo único que requiere una plataforma a la medida o un SaaS especializado, en <strong>eMCi labs</strong> forjamos la solución exacta para tu operación.
+                </p>
+
+                <div class="slide-highlights-list">
+                  <div class="slide-highlight-item">
+                    <span style="color:var(--emci-cyan); font-weight:800;">1</span>
+                    <span><strong>Diagnóstico en el Terreno:</strong> Estudiamos tus procesos reales y dolores operativos.</span>
+                  </div>
+                  <div class="slide-highlight-item">
+                    <span style="color:var(--emci-cyan); font-weight:800;">2</span>
+                    <span><strong>Prototipado Boutique:</strong> Diseñamos la arquitectura y validamos con tu equipo antes de programar.</span>
+                  </div>
+                  <div class="slide-highlight-item">
+                    <span style="color:var(--emci-cyan); font-weight:800;">3</span>
+                    <span><strong>Despliegue & Misión Crítica:</strong> Salida a producción con pruebas continuas y soporte directo.</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="slide-visual-preview" style="text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 2.2rem;">
+                <div style="background: #ffffff; padding: 0.5rem 1.4rem; border-radius: 9999px; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 1.25rem; box-shadow: 0 8px 25px rgba(0,0,0,0.25);">
+                  <img src="assets/images/logo-tight.png" alt="eMCi labs" style="height: 38px; width: auto; display: block;">
+                </div>
+                <h4 style="font-size: 1.35rem; font-weight: 800; color: #ffffff; margin-bottom: 0.45rem;">"Estamos contigo, siempre a tu lado."</h4>
+                <p style="font-size: 0.88rem; color: rgba(255,255,255,0.8); margin-bottom: 1.3rem; line-height: 1.5; max-width: 330px;">Iniciemos la evolución tecnológica de tu empresa con ingeniería boutique personalizada.</p>
+                
+                <div style="background: rgba(38, 208, 206, 0.12); padding: 0.8rem 1.6rem; border-radius: var(--radius-full); border: 1px solid rgba(38, 208, 206, 0.45); margin-bottom: 1.1rem; box-shadow: 0 4px 15px rgba(38, 208, 206, 0.15);">
+                  <a href="mailto:contacto@emcilabs.com" style="color: var(--emci-cyan); font-weight: 700; text-decoration: none; font-size: 0.98rem; letter-spacing: 0.02em;">contacto@emcilabs.com</a>
+                </div>
+
+                <div style="font-size: 0.8rem; color: rgba(255,255,255,0.6);">
+                  eMCi labs • Estudio de Ingeniería de Software Boutique
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Barra Inferior de Navegación de Diapositivas -->
+        <div class="deck-controls-bottom">
+          <div class="deck-nav-btns">
+            <button class="deck-btn-nav" id="btnDeckPrev">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+              <span>Anterior</span>
+            </button>
+            <button class="deck-btn-nav" id="btnDeckNext">
+              <span>Siguiente</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+          </div>
+
+          <div class="deck-counter-badge" id="deckSlideCounter">
+            Diapositiva <strong style="color:var(--emci-cyan);">1</strong> de 7
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Pie de Página en Azul Cósmico -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom" style="border: none; padding: 0;">
+        <p>&copy; 2026 eMCi labs. Bóveda Privada de Clientes.</p>
+        <div class="footer-badge">
+          Sesión Activa: camilomatiz114@gmail.com
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script de Control del Portal -->
+  <script>
+    // 1. Verificación de Autenticación
+    const isAuth = sessionStorage.getItem('emci_auth') === 'true' || localStorage.getItem('emci_auth') === 'true';
+    if (!isAuth) {
+      window.location.href = 'login.html';
+    }
+
+    // 2. Cerrar Sesión
+    document.getElementById('btnLogout').addEventListener('click', () => {
+      sessionStorage.removeItem('emci_auth');
+      sessionStorage.removeItem('emci_user');
+      localStorage.removeItem('emci_auth');
+      localStorage.removeItem('emci_user');
+      window.location.href = 'login.html';
+    });
+
+    // 3. Manejo de Carga de Archivos
+    const dropzone = document.getElementById('dropzoneBox');
+    const fileInput = document.getElementById('fileUploadInput');
+    let targetCardDocId = null;
+
+    dropzone.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      dropzone.classList.add('dragover');
+    });
+
+    dropzone.addEventListener('dragleave', () => {
+      dropzone.classList.remove('dragover');
+    });
+
+    dropzone.addEventListener('drop', (e) => {
+      e.preventDefault();
+      dropzone.classList.remove('dragover');
+      if (e.dataTransfer.files.length > 0) {
+        handleUploadedFiles(e.dataTransfer.files);
+      }
+    });
+
+    fileInput.addEventListener('change', (e) => {
+      if (e.target.files.length > 0) {
+        if (targetCardDocId) {
+          handleCardSpecificFile(targetCardDocId, e.target.files[0]);
+          targetCardDocId = null;
+        } else {
+          handleUploadedFiles(e.target.files);
+        }
+      }
+    });
+
+    function triggerCardUpload(docId, docTitle) {
+      targetCardDocId = docId;
+      fileInput.click();
+    }
+
+    function handleCardSpecificFile(docId, file) {
+      const statusPill = document.getElementById(`status-${docId}`);
+      const metaSpan = document.getElementById(`meta-${docId}`);
+      
+      if (statusPill && metaSpan) {
+        statusPill.className = 'doc-status-pill status-ready';
+        statusPill.textContent = 'Archivo Cargado';
+        
+        const sizeKb = (file.size / 1024).toFixed(1);
+        metaSpan.textContent = `${file.name} (${sizeKb} KB)`;
+
+        // Guardar registro
+        localStorage.setItem(`emci_doc_${docId}`, JSON.stringify({
+          name: file.name,
+          size: sizeKb + ' KB',
+          date: new Date().toLocaleDateString()
+        }));
+
+        updateStats();
+        alert(`¡Archivo "${file.name}" cargado exitosamente en la bóveda!`);
+      }
+    }
+
+    function handleUploadedFiles(files) {
+      const grid = document.getElementById('documentsGrid');
+      Array.from(files).forEach((file, index) => {
+        const fileExt = file.name.split('.').pop().toUpperCase();
+        const sizeKb = (file.size / 1024).toFixed(1);
+        const cardId = 'custom-' + Date.now() + '-' + index;
+
+        const newCard = document.createElement('div');
+        newCard.className = 'doc-card';
+        newCard.innerHTML = `
+          <div>
+            <div class="doc-header">
+              <div class="doc-type-icon type-custom">${fileExt.slice(0, 4)}</div>
+              <span class="doc-status-pill status-ready">Cargado</span>
+            </div>
+            <h4 class="doc-title">${file.name}</h4>
+            <p class="doc-desc">Documento adjuntado por Camilo Matiz en la bóveda privada.</p>
+          </div>
+          <div>
+            <div class="doc-meta">
+              <span>Tamaño: ${sizeKb} KB</span>
+              <span>•</span>
+              <span>Subido hoy</span>
+            </div>
+            <div class="doc-actions">
+              <button class="btn-doc-upload" style="background:#dcfce7; color:#15803d; border-color:#86efac;" onclick="alert('Descargando copia local de ${file.name}...')">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                <span>Descargar</span>
+              </button>
+            </div>
+          </div>
+        `;
+        grid.prepend(newCard);
+      });
+
+      updateStats();
+      alert(`Se han añadido ${files.length} documento(s) a la bóveda privada.`);
+    }
+
+    function updateStats() {
+      const cards = document.querySelectorAll('.doc-card');
+      const readyPills = document.querySelectorAll('.doc-status-pill.status-ready');
+      document.getElementById('totalDocsCount').textContent = cards.length;
+      document.getElementById('uploadedDocsCount').textContent = readyPills.length;
+      document.getElementById('pendingDocsCount').textContent = Math.max(0, cards.length - readyPills.length);
+    }
+
+    // Restaurar archivos cargados previamente
+    window.addEventListener('DOMContentLoaded', () => {
+      ['doc-1', 'doc-2', 'doc-3', 'doc-4', 'doc-5', 'doc-6'].forEach(id => {
+        const saved = localStorage.getItem(`emci_doc_${id}`);
+        if (saved) {
+          try {
+            const data = JSON.parse(saved);
+            const statusPill = document.getElementById(`status-${id}`);
+            const metaSpan = document.getElementById(`meta-${id}`);
+            if (statusPill && metaSpan) {
+              statusPill.className = 'doc-status-pill status-ready';
+              statusPill.textContent = 'Archivo Cargado';
+              metaSpan.textContent = `${data.name} (${data.size})`;
+            }
+          } catch(e) {}
+        }
+      });
+      updateStats();
+      initInteractiveDeck();
+    });
+
+    // 4. Controlador de Presentaciones Interactivas
+    function initInteractiveDeck() {
+      const slides = document.querySelectorAll('.pres-slide');
+      const prevBtn = document.getElementById('btnDeckPrev');
+      const nextBtn = document.getElementById('btnDeckNext');
+      const counterEl = document.getElementById('deckSlideCounter');
+      const progressFill = document.getElementById('deckProgressFill');
+      const fullscreenBtn = document.getElementById('btnToggleDeckFullscreen');
+      const autoplayBtn = document.getElementById('btnAutoPlayDeck');
+      const deckContainer = document.getElementById('interactiveDeck');
+
+      if (!slides.length) return;
+
+      let currentIdx = 0;
+      let autoplayActive = false;
+      let autoplayInterval = null;
+
+      function updateSlide(idx) {
+        slides.forEach((slide, i) => {
+          slide.classList.toggle('active', i === idx);
+        });
+
+        // Update Counter
+        if (counterEl) {
+          counterEl.innerHTML = `Diapositiva <strong style="color:var(--emci-cyan);">${idx + 1}</strong> de ${slides.length}`;
+        }
+
+        // Update Progress Bar
+        if (progressFill) {
+          const progressPercent = ((idx + 1) / slides.length) * 100;
+          progressFill.style.width = `${progressPercent}%`;
+        }
+
+        // Update buttons state
+        if (prevBtn) prevBtn.disabled = idx === 0;
+        if (nextBtn) nextBtn.disabled = idx === slides.length - 1;
+
+        currentIdx = idx;
+      }
+
+      function goNext() {
+        if (currentIdx < slides.length - 1) {
+          updateSlide(currentIdx + 1);
+        } else if (autoplayActive) {
+          updateSlide(0);
+        }
+      }
+
+      function goPrev() {
+        if (currentIdx > 0) {
+          updateSlide(currentIdx - 1);
+        }
+      }
+
+      if (prevBtn) prevBtn.addEventListener('click', () => { goPrev(); stopAutoplay(); });
+      if (nextBtn) nextBtn.addEventListener('click', () => { goNext(); stopAutoplay(); });
+
+      // Keyboard navigation (← and →)
+      document.addEventListener('keydown', (e) => {
+        // Solo responder si no está escribiendo en un input
+        if (['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) return;
+        if (e.key === 'ArrowRight') {
+          goNext();
+        } else if (e.key === 'ArrowLeft') {
+          goPrev();
+        }
+      });
+
+      // Fullscreen toggle
+      if (fullscreenBtn && deckContainer) {
+        fullscreenBtn.addEventListener('click', () => {
+          if (!document.fullscreenElement) {
+            deckContainer.requestFullscreen().catch(err => console.warn(err));
+          } else {
+            document.exitFullscreen().catch(err => console.warn(err));
+          }
+        });
+      }
+
+      // Autoplay toggle
+      if (autoplayBtn) {
+        autoplayBtn.addEventListener('click', () => {
+          if (autoplayActive) {
+            stopAutoplay();
+          } else {
+            startAutoplay();
+          }
+        });
+      }
+
+      function startAutoplay() {
+        autoplayActive = true;
+        autoplayBtn.style.background = 'rgba(38, 208, 206, 0.35)';
+        autoplayBtn.style.borderColor = 'var(--emci-cyan)';
+        const textSpan = document.getElementById('autoPlayText');
+        if (textSpan) textSpan.textContent = 'Pausar';
+        autoplayInterval = setInterval(goNext, 6000);
+      }
+
+      function stopAutoplay() {
+        autoplayActive = false;
+        if (autoplayInterval) clearInterval(autoplayInterval);
+        autoplayBtn.style.background = '';
+        autoplayBtn.style.borderColor = '';
+        const textSpan = document.getElementById('autoPlayText');
+        if (textSpan) textSpan.textContent = 'Auto-Play';
+      }
+
+      // Inicializar en Diapositiva 0
+      updateSlide(0);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+/* ==========================================================================
+   Clients Section - Infinite Continuous Marquee Slider
+   Los clientes corren de lado a lado continuamente en loop infinito
+   ========================================================================== */
+
+.clients-section {
+  padding: 3.5rem 0 4.5rem;
+  background-color: var(--bg-page);
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.clients-title {
+  font-size: 0.88rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--emci-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-bottom: 2.5rem;
+}
+
+.clients-title::before,
+.clients-title::after {
+  content: '';
+  width: 50px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--emci-cyan));
+}
+
+.clients-title::after {
+  background: linear-gradient(90deg, var(--emci-cyan), transparent);
+}
+
+/* Slider Track Wrapper with subtle edge fade gradients */
+.clients-slider-wrapper {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding: 0.5rem 0;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+}
+
+.clients-track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: scrollClients 24s linear infinite;
+}
+
+/* Pause on hover so the user can inspect any client */
+.clients-slider-wrapper:hover .clients-track {
+  animation-play-state: paused;
+}
+
+.clients-group {
+  display: flex;
+  align-items: center;
+  gap: 4.5rem;
+  padding-right: 4.5rem;
+}
+
+.client-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  height: 65px;
+  min-width: 160px;
+  cursor: pointer;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.client-card img {
+  max-height: 48px;
+  max-width: 155px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  /* Blanco y negro por defecto con opacidad elegante */
+  filter: grayscale(100%) opacity(0.55);
+  transition: filter 0.35s cubic-bezier(0.16, 1, 0.3, 1), 
+              opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Al pasar el mouse: recupera su color original al 100% y resalta */
+.client-card:hover img {
+  filter: grayscale(0%) opacity(1);
+  transform: scale(1.12);
+}
+
+/* Infinite Marquee Keyframe */
+@keyframes scrollClients {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@media (max-width: 768px) {
+  .clients-group {
+    gap: 2.5rem;
+    padding-right: 2.5rem;
+  }
+  .client-card {
+    min-width: 120px;
+    height: 55px;
+  }
+  .client-card img {
+    max-height: 40px;
+  }
+}

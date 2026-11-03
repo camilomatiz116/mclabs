@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" fill="none">
+  <path d="M14 30C14 22 20 16 28 16C36 16 42 22 42 30C42 38 36 44 28 44" stroke="#0062E0" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="28" cy="30" r="4" fill="#35D4C3"/>
+  <text x="55" y="38" fill="#1C3838" font-family="'Plus Jakarta Sans', sans-serif" font-size="20" font-weight="700" letter-spacing="1.5">SYNAPSE</text>
+</svg>

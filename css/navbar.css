@@ -1,0 +1,198 @@
+/* ==========================================================================
+   Navbar - Franja Blanca de Lado a Lado (Edge-to-Edge Full-Width White Strip)
+   Menú limpio sin fondo redondeado, tipografía corporativa en español
+   ========================================================================== */
+
+.site-header {
+  width: 100%;
+  background: #ffffff;
+  border-bottom: 1px solid rgba(13, 91, 199, 0.08);
+  box-shadow: 0 4px 20px rgba(5, 20, 40, 0.05);
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  padding: 0;
+}
+
+.header-container,
+.nav-wrapper {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0.85rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Brand Logo (eMCi labs sobre fondo blanco limpio) */
+.brand-logo,
+.brand-logo-pill {
+  display: inline-flex;
+  align-items: center;
+  background: transparent;
+  padding: 0;
+  box-shadow: none;
+  transition: var(--transition-fast);
+}
+
+.brand-logo:hover,
+.brand-logo-pill:hover {
+  opacity: 0.9;
+}
+
+.brand-logo img,
+.brand-logo-pill img {
+  height: 44px;
+  width: auto;
+  max-width: 170px;
+  object-fit: contain;
+  display: block;
+}
+
+/* Menú de Navegación Limpio (Sin fondo redondeado grisáceo) */
+.nav-pill-group {
+  display: flex;
+  align-items: center;
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+  box-shadow: none;
+  gap: 2rem;
+}
+
+.nav-link {
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 0.4rem 0;
+  border-radius: 0;
+  color: #2c4460;
+  position: relative;
+  transition: var(--transition-fast);
+}
+
+.nav-link:hover {
+  color: var(--emci-blue);
+}
+
+.nav-link.active {
+  background: transparent;
+  color: var(--emci-blue);
+  font-weight: 700;
+  box-shadow: none;
+}
+
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2.5px;
+  background: var(--emci-blue);
+  border-radius: 2px;
+}
+
+/* Botón Iniciar Proyecto */
+.nav-cta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* Botón Ingreso / Acceso a Clientes */
+.btn-header-login {
+  padding: 0.62rem 1.35rem;
+  border-radius: var(--radius-full);
+  background: transparent;
+  color: var(--emci-blue);
+  font-size: 0.9rem;
+  font-weight: 700;
+  border: 1.5px solid var(--emci-blue);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  text-decoration: none;
+}
+
+.btn-header-login:hover {
+  background: var(--emci-blue);
+  color: #ffffff;
+  box-shadow: 0 4px 15px rgba(13, 91, 199, 0.28);
+  transform: translateY(-2px);
+}
+
+.btn-header,
+.btn-header-warm {
+  padding: 0.65rem 1.6rem;
+  border-radius: var(--radius-full);
+  background: var(--btn-warm-orange);
+  color: #ffffff;
+  font-size: 0.92rem;
+  font-weight: 700;
+  border: none;
+  box-shadow: 0 4px 18px rgba(242, 142, 66, 0.45);
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.btn-header:hover,
+.btn-header-warm:hover {
+  background: var(--btn-warm-orange-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(242, 142, 66, 0.6);
+}
+
+/* Mobile Toggle */
+.mobile-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: #f1f5fa;
+  border: none;
+  border-radius: var(--radius-full);
+  padding: 0.65rem;
+  cursor: pointer;
+}
+
+.mobile-toggle span {
+  width: 22px;
+  height: 2.5px;
+  background: var(--emci-navy);
+  border-radius: 2px;
+}
+
+@media (max-width: 960px) {
+  .nav-pill-group {
+    display: none;
+  }
+  .nav-cta .btn-header,
+  .nav-cta .btn-header-warm {
+    display: none;
+  }
+  .mobile-toggle {
+    display: flex;
+  }
+
+  .nav-pill-group.open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    padding: 1.5rem 2rem;
+    background: #ffffff;
+    border-bottom: 1px solid rgba(13, 91, 199, 0.1);
+    box-shadow: 0 15px 35px rgba(7, 23, 40, 0.2);
+    gap: 1.25rem;
+  }
+
+  .nav-pill-group.open .nav-link {
+    width: 100%;
+    text-align: center;
+    padding: 0.5rem 0;
+  }
+}
