@@ -29,96 +29,8 @@
   box-shadow: 0 26px 60px rgba(20, 45, 90, 0.16);
 }
 
-.bento-main {
-  grid-column: span 8;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 1.75rem;
-}
-
-.bento-main h3 {
-  font-size: clamp(1.7rem, 2.6vw, 2.4rem);
-  margin-bottom: 0.9rem;
-}
-
-.bento-main p {
-  font-size: 1.04rem;
-  line-height: 1.75;
-  max-width: 600px;
-}
-
-.bento-pillar {
-  grid-column: span 4;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background: var(--emci-navy);
-}
-
-.bento-pillar h4 {
-  color: #ffffff;
-  font-size: 1.3rem;
-  margin-bottom: 0.7rem;
-}
-
-.bento-pillar p {
-  color: rgba(255, 255, 255, 0.75);
-}
-
-.pillar-icon,
-.service-icon-box {
-  width: 52px;
-  height: 52px;
-  border-radius: var(--radius-md);
-  background: var(--tint-blue);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--accent-deep);
-  margin-bottom: 1.4rem;
-  transition: var(--transition-smooth);
-}
-
-.bento-pillar .pillar-icon {
-  background: rgba(255, 255, 255, 0.12);
-  color: var(--emci-cyan);
-}
-
-.bento-stats {
-  grid-column: span 4;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-}
-
-.stat-box {
-  background: #f3f6fb;
-  border-radius: var(--radius-md);
-  padding: 1.3rem 0.8rem;
-  text-align: center;
-}
-
-.stat-box .number {
-  font-family: var(--font-display);
-  font-size: 1.95rem;
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  color: var(--accent-deep);
-  line-height: 1.1;
-}
-
-.stat-box .label {
-  font-size: 0.7rem;
-  font-weight: 800;
-  color: var(--text-dark-muted);
-  margin-top: 0.4rem;
-  text-transform: uppercase;
-  letter-spacing: var(--tracking-caps);
-}
-
 .bento-showcase {
-  grid-column: span 8;
+  grid-column: span 12;
 }
 
 .showcase-text h4 {
@@ -142,14 +54,394 @@
   color: var(--accent-deep);
 }
 
+/* ==========================================================================
+   Socios fundadores
+   ========================================================================== */
+
+.founders-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 6rem;
+}
+
+.founder-card {
+  background: #ffffff;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Franja de color superior: azul en el primer socio, azul marino en el segundo */
+.founder-cover {
+  height: 150px;
+  background: var(--emci-blue);
+}
+
+.founder-card:nth-child(even) .founder-cover {
+  background: var(--emci-navy);
+}
+
+/* Foto como botón circular (abre LinkedIn) montada sobre la franja */
+.founder-avatar {
+  position: relative;
+  display: block;
+  width: 220px;
+  height: 220px;
+  margin: -110px auto 0;
+  padding: 7px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 0 0 5px var(--emci-cyan);
+  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
+}
+
+/* Anillo punteado decorativo que gira al pasar el mouse */
+.founder-avatar::before {
+  content: '';
+  position: absolute;
+  inset: -16px;
+  border-radius: 50%;
+  border: 2px dashed var(--emci-cyan);
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), border-color var(--transition-smooth);
+}
+
+.founder-avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center 15%;
+}
+
+.avatar-badge {
+  position: absolute;
+  right: 6px;
+  bottom: 10px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 4px solid #ffffff;
+  background: var(--emci-blue);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Montserrat', var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 800;
+  transition: background var(--transition-smooth), color var(--transition-smooth);
+}
+
+.founder-avatar:hover {
+  transform: scale(1.04);
+  box-shadow: 0 0 0 5px var(--emci-blue);
+}
+
+.founder-avatar:hover::before {
+  transform: rotate(180deg);
+  border-color: var(--emci-blue);
+}
+
+.founder-avatar:hover .avatar-badge {
+  background: var(--emci-cyan);
+  color: var(--emci-navy);
+}
+
+.founder-avatar:focus-visible {
+  outline: 3px solid var(--emci-blue);
+  outline-offset: 22px;
+}
+
+.founder-body {
+  padding: 1.8rem 2.4rem 2.4rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.founder-role {
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--emci-blue);
+  text-align: center;
+}
+
+/* Nombre en Montserrat ExtraBold (tipografía del logo) */
+.founder-name {
+  margin-top: 0.5rem;
+  font-family: 'Montserrat', var(--font-display);
+  font-size: clamp(2.2rem, 3.4vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  text-align: center;
+}
+
+.founder-title {
+  margin-top: 0.3rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  text-align: center;
+}
+
+.founder-bio {
+  margin-top: 1rem;
+  line-height: 1.7;
+}
+
+.founder-timeline {
+  list-style: none;
+  margin-top: 1.6rem;
+  border-left: 2px solid var(--tint-blue);
+}
+
+.founder-timeline li {
+  position: relative;
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 1rem;
+  padding: 0.45rem 0 0.45rem 1.2rem;
+  font-size: 0.92rem;
+}
+
+.founder-timeline li::before {
+  content: '';
+  position: absolute;
+  left: -6px;
+  top: 0.85rem;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--emci-blue);
+}
+
+.founder-timeline li:first-child::before {
+  background: var(--emci-cyan);
+}
+
+.ft-years {
+  font-weight: 800;
+  color: var(--emci-blue);
+  white-space: nowrap;
+}
+
+.ft-role {
+  color: var(--text-dark);
+  font-weight: 600;
+}
+
+.ft-role em {
+  display: block;
+  font-style: normal;
+  font-weight: 500;
+  color: var(--text-dark-muted);
+}
+
+.founder-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.6rem;
+  margin-bottom: 1.6rem;
+}
+
+/* El pie llega de borde a borde: compensa el padding de .founder-body (2.4rem) */
+.founder-footer {
+  margin: auto -2.4rem -2.4rem;
+  padding: 1.4rem 2.4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0.7rem;
+  min-height: 128px;
+  border-top: 1px solid var(--border-soft);
+}
+
+.founder-edu {
+  font-size: 0.8rem;
+  color: var(--text-dark-muted);
+  max-width: 340px;
+}
+
+.founder-links {
+  display: inline-flex;
+  gap: 1.2rem;
+}
+
+.founder-link {
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--emci-blue);
+}
+
+.founder-link:hover {
+  color: var(--emci-blue-dark);
+}
+
+/* ==========================================================================
+   Cómo la experiencia se aplica a los desarrollos
+   ========================================================================== */
+
+.experience-section {
+  margin-bottom: 6rem;
+}
+
+.experience-head {
+  max-width: 760px;
+  margin-bottom: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.experience-head h2 {
+  font-size: clamp(1.9rem, 3.4vw, 2.8rem);
+}
+
+.experience-head p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.experience-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+
+.experience-card {
+  background: var(--emci-blue);
+  color: #ffffff;
+  border-radius: var(--radius-lg);
+  padding: 2rem 1.8rem;
+}
+
+.experience-card:nth-child(even) {
+  background: var(--emci-navy);
+}
+
+.exp-number {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--emci-navy);
+  background: var(--emci-cyan);
+  padding: 0.3rem 0.65rem;
+  border-radius: var(--radius-btn);
+}
+
+.experience-card h4 {
+  margin-top: 1.2rem;
+  font-size: 1.2rem;
+  line-height: 1.25;
+  color: #ffffff;
+}
+
+.experience-card p {
+  margin-top: 0.8rem;
+  font-size: 0.94rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.proof-block {
+  margin-top: 1.25rem;
+  background: #ffffff;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--card-shadow);
+  padding: 2.4rem;
+}
+
+.proof-title {
+  font-size: 1.35rem;
+  margin-bottom: 1.6rem;
+}
+
+.proof-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.proof-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 1.2rem 1.3rem;
+  border-left: 4px solid var(--emci-cyan);
+  background: var(--bg-page);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+
+.proof-item strong {
+  color: var(--text-dark);
+  font-size: 1rem;
+}
+
+.proof-item span {
+  font-size: 0.9rem;
+  color: var(--text-dark-muted);
+}
+
+.proof-item em {
+  font-style: normal;
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--emci-blue);
+}
+
+@media (max-width: 1100px) {
+  .experience-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media (max-width: 992px) {
-  .bento-main, .bento-pillar, .bento-stats, .bento-showcase {
-    grid-column: span 12;
+  .founders-grid {
+    grid-template-columns: 1fr;
+  }
+  .proof-grid {
+    grid-template-columns: 1fr 1fr;
   }
 }
 
 @media (max-width: 560px) {
   .bento-card {
     padding: 1.75rem;
+  }
+  .founder-avatar {
+    width: 180px;
+    height: 180px;
+    margin-top: -90px;
+  }
+  .founder-cover {
+    height: 120px;
+  }
+  .founder-body,
+  .proof-block {
+    padding: 1.6rem;
+  }
+  .founder-footer {
+    margin: auto -1.6rem -1.6rem;
+    padding: 1.2rem 1.6rem;
+  }
+  .founder-timeline li {
+    grid-template-columns: 1fr;
+    gap: 0.1rem;
+  }
+  .experience-grid,
+  .proof-grid {
+    grid-template-columns: 1fr;
   }
 }

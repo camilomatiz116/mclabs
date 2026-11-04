@@ -138,16 +138,6 @@
   pointer-events: none;
 }
 
-/* Velo para que la frase se lea sobre cualquier fotograma */
-.hero-visual::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background: var(--photo-veil);
-  pointer-events: none;
-}
-
 @media (prefers-reduced-motion: reduce) {
   .hero-video {
     display: none;

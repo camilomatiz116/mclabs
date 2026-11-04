@@ -30,6 +30,19 @@
   box-shadow: 0 26px 60px rgba(20, 45, 90, 0.16);
 }
 
+.service-icon-box {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-md);
+  background: var(--tint-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--emci-blue);
+  margin-bottom: 1.4rem;
+  transition: var(--transition-smooth);
+}
+
 .service-card:hover .service-icon-box {
   background: var(--accent);
   color: #ffffff;
