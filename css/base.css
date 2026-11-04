@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Base Styles - Full Screen Edge-to-Edge Architecture
+   Base Styles - Sky Theme
    ========================================================================== */
 
 *, *::before, *::after {
@@ -18,7 +18,7 @@ body {
   font-family: var(--font-sans);
   background-color: var(--bg-page);
   color: var(--text-dark);
-  line-height: 1.6;
+  line-height: 1.65;
   overflow-x: hidden;
   position: relative;
   min-height: 100vh;
@@ -34,9 +34,12 @@ body {
   z-index: 2;
 }
 
-h1, h2, h3, h4 {
-  line-height: 1.1;
-  letter-spacing: -0.01em;
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  color: var(--text-dark);
 }
 
 p {
@@ -53,4 +56,180 @@ img {
   max-width: 100%;
   height: auto;
   display: block;
+}
+
+::selection {
+  background: var(--accent);
+  color: #ffffff;
+}
+
+/* Logo: logo-oscuro.png para fondos oscuros, logo-claro.png para fondos claros */
+.logo-img {
+  display: block;
+  height: 48px;
+  width: auto;
+}
+
+/* Páginas interiores: banda fotográfica (assets/images/page-bg.jpg) detrás del encabezado */
+.page-aurora {
+  background: var(--bg-page);
+}
+
+.page-aurora::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 680px;
+  z-index: 0;
+  pointer-events: none;
+  height: 560px;
+  background:
+    linear-gradient(var(--photo-veil), var(--photo-veil)),
+    url('../assets/images/page-bg.jpg') center 35% / cover no-repeat;
+}
+
+/* Encabezado de sección compartido */
+.section-header {
+  text-align: center;
+  max-width: 780px;
+  margin: 0 auto 3.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.section-header h2 {
+  font-size: clamp(2.1rem, 4.4vw, 3.4rem);
+}
+
+.section-header p {
+  font-size: 1.08rem;
+  max-width: 580px;
+}
+
+.page-aurora .section-header h2,
+.page-aurora .section-header p {
+  color: #ffffff;
+  text-shadow: var(--text-on-sky-shadow);
+}
+
+/* Etiqueta superior (eyebrow) */
+.badge-pill-dark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--accent-deep);
+  width: fit-content;
+}
+
+.page-aurora .section-header .badge-pill-dark {
+  color: #ffffff;
+  text-shadow: var(--text-on-sky-shadow);
+}
+
+.badge-dot-dark {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--emci-cyan);
+  box-shadow: 0 0 10px var(--emci-cyan);
+}
+
+/* Botones compartidos */
+.btn-primary-warm,
+.btn-glass-light {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  padding: 1.05rem 2.1rem;
+  border-radius: var(--radius-btn);
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  font-weight: 800;
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+/* Botones planos con los colores del logo */
+.btn-primary-warm {
+  background: var(--emci-blue);
+  color: #ffffff;
+  border: none;
+}
+
+.btn-primary-warm:hover {
+  background: var(--emci-blue-dark);
+}
+
+.btn-glass-light {
+  background: transparent;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+}
+
+.btn-glass-light:hover {
+  background: #ffffff;
+  color: var(--emci-navy);
+}
+
+/* Botones flotantes (esquina inferior derecha) */
+.floating-cta {
+  position: fixed;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  z-index: 90;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+/* Pestaña grande pegada al borde derecho */
+.floating-cta a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.15rem 2.6rem 1.15rem 2.2rem;
+  border-radius: var(--radius-full) 0 0 var(--radius-full);
+  margin-right: -1.5rem;
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 1.6vw, 1.5rem);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: var(--emci-navy);
+  background: var(--emci-cyan);
+}
+
+.floating-cta a:hover {
+  transform: translateX(-6px);
+  background: var(--emci-cyan-light);
+}
+
+@media (max-width: 760px) {
+  .floating-cta {
+    display: none;
+  }
+}
+
+/* Revelado suave al cargar */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

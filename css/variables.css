@@ -1,52 +1,70 @@
 /* ==========================================================================
-   eMCi labs - Exact Logo Color Palette & Full-Screen Architecture
-   - Royal Blue: #0D5BC7 (from 'eM')
-   - Vibrant Cyan: #26D0CE (from 'Ci' & dot)
-   - Deep Space Navy: #071728 / #0B223D (from 'labs')
-   - Clean White: #FFFFFF
+   eMCi labs - Paleta de marca (colores tomados de los logos) y diseño plano
+   - Azul eM:      #0B5CC7
+   - Cian Ci:      #4ADBCE
+   - Azul marino:  #07172B (fondo del logo oscuro / "labs")
+   - Tipografía: Sora (display) + Manrope (texto)
    ========================================================================== */
 
 :root {
-  /* Exact eMCi Logo Palette */
-  --emci-blue: #0D5BC7;
-  --emci-blue-light: #2077f3;
-  --emci-blue-dark: #094498;
-  --emci-cyan: #26D0CE;
-  --emci-cyan-light: #4eedeb;
-  --emci-cyan-glow: rgba(38, 208, 206, 0.45);
-  --emci-navy: #071728;
-  --emci-navy-card: #0c233c;
+  /* Colores del logo */
+  --emci-blue: #0B5CC7;
+  --emci-blue-light: #2A72D6;
+  --emci-blue-dark: #094BA4;
+  --emci-cyan: #4ADBCE;
+  --emci-cyan-light: #7FE7DE;
+  --emci-cyan-dark: #2FC2B5;
+  --emci-cyan-glow: rgba(74, 219, 206, 0.45);
+  --emci-navy: #07172B;
+  --emci-navy-card: #0E2440;
+  --emci-sky: #9DBDE8;
 
-  /* Full Screen Hero Background (Deep Blue & Vibrant Cyan Space Agency) */
-  --hero-full-bg: radial-gradient(100% 110% at 65% 30%, #1066d6 0%, #0a3b75 50%, #06182e 100%);
-  --hero-aurora-cyan: radial-gradient(circle, rgba(38, 208, 206, 0.32) 0%, transparent 65%);
-  --hero-aurora-blue: radial-gradient(circle, rgba(13, 91, 199, 0.45) 0%, transparent 70%);
+  /* Superficie plana de marca (antes degradado de cielo) */
+  --hero-full-bg: var(--emci-blue);
 
-  /* Warm Orange Accent from Reference Button */
-  --btn-warm-orange: #f28e42;
-  --btn-warm-orange-hover: #e07d30;
+  /* Acentos: todos derivan del logo */
+  --accent: var(--emci-blue);
+  --accent-hover: var(--emci-blue-dark);
+  --accent-deep: var(--emci-blue);
+  --btn-warm-orange: var(--accent);
+  --btn-warm-orange-hover: var(--accent-hover);
+  --warm-orange: var(--accent);
+  --warm-orange-hover: var(--accent-hover);
+  --teal-hero-start: rgba(11, 92, 199, 0.45);
+  --teal-hero-end: var(--emci-blue);
+  --tint-blue: #E7EFFA;
 
-  /* Surfaces & Cards */
-  --bg-page: #f4f8fc;
+  /* Superficies claras */
+  --bg-page: #F2F5F9;
   --card-white: #ffffff;
-  --card-shadow: 0 16px 40px rgba(5, 20, 38, 0.25);
+  --surface-glass: rgba(255, 255, 255, 0.72);
+  --border-soft: rgba(7, 23, 43, 0.1);
+  --border-strong: rgba(7, 23, 43, 0.2);
+  --card-shadow: 0 10px 30px rgba(7, 23, 43, 0.08);
 
-  /* Typography */
-  --font-serif: 'Cormorant Garamond', Georgia, serif;
-  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  /* Velo plano sobre fotos y video */
+  --photo-veil: rgba(7, 23, 43, 0.6);
+
+  /* Tipografía */
+  --font-display: 'Sora', 'Manrope', system-ui, sans-serif;
+  --font-serif: var(--font-display);
+  --font-sans: 'Manrope', system-ui, -apple-system, sans-serif;
+  --tracking-caps: 0.06em;
   --text-white: #ffffff;
   --text-white-sub: rgba(255, 255, 255, 0.92);
-  --text-dark: #071728;
-  --text-dark-muted: #4e6580;
+  --text-dark: var(--emci-navy);
+  --text-dark-muted: #4A5C74;
+  --text-on-sky-shadow: none;
 
-  /* Radii */
+  /* Radios */
   --radius-full: 9999px;
-  --radius-xl: 32px;
+  --radius-xl: 28px;
   --radius-lg: 20px;
   --radius-md: 14px;
   --radius-sm: 8px;
+  --radius-btn: 6px;
 
-  /* Transitions */
+  /* Transiciones */
   --transition-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   --transition-smooth: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }

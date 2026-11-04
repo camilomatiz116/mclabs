@@ -1,167 +1,201 @@
 /* ==========================================================================
-   Navbar - Franja Blanca de Lado a Lado (Edge-to-Edge Full-Width White Strip)
-   Menú limpio sin fondo redondeado, tipografía corporativa en español
+   Navbar - Transparente sobre el cielo, sólida al hacer scroll
    ========================================================================== */
 
 .site-header {
   width: 100%;
-  background: #ffffff;
-  border-bottom: 1px solid rgba(13, 91, 199, 0.08);
-  box-shadow: 0 4px 20px rgba(5, 20, 40, 0.05);
-  position: sticky;
+  position: fixed;
   top: 0;
   left: 0;
   z-index: 100;
-  padding: 0;
+  background: transparent;
+  transition: background var(--transition-smooth), box-shadow var(--transition-smooth);
+}
+
+.site-header.is-scrolled {
+  background: #ffffff;
+  backdrop-filter: blur(16px) saturate(150%);
+  -webkit-backdrop-filter: blur(16px) saturate(150%);
+  box-shadow: 0 1px 0 var(--border-soft);
 }
 
 .header-container,
 .nav-wrapper {
-  max-width: 1320px;
+  max-width: 1440px;
   margin: 0 auto;
-  padding: 0.85rem 2rem;
+  padding: 1.35rem 2.25rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 2rem;
+  transition: padding var(--transition-smooth);
 }
 
-/* Brand Logo (eMCi labs sobre fondo blanco limpio) */
+.is-scrolled .header-container,
+.is-scrolled .nav-wrapper {
+  padding-top: 0.85rem;
+  padding-bottom: 0.85rem;
+}
+
 .brand-logo,
 .brand-logo-pill {
   display: inline-flex;
   align-items: center;
-  background: transparent;
-  padding: 0;
-  box-shadow: none;
-  transition: var(--transition-fast);
 }
 
 .brand-logo:hover,
 .brand-logo-pill:hover {
-  opacity: 0.9;
+  opacity: 0.85;
 }
 
-.brand-logo img,
-.brand-logo-pill img {
-  height: 44px;
-  width: auto;
-  max-width: 170px;
-  object-fit: contain;
+/* Versión oscura del logo sobre el hero; versión clara cuando el header se vuelve blanco */
+.site-header .logo-for-light,
+.site-header.is-scrolled .logo-for-dark {
+  display: none;
+}
+
+.site-header.is-scrolled .logo-for-light {
   display: block;
 }
 
-/* Menú de Navegación Limpio (Sin fondo redondeado grisáceo) */
+.is-scrolled .logo-img {
+  height: 42px;
+}
+
 .nav-pill-group {
   display: flex;
   align-items: center;
-  background: transparent;
-  padding: 0;
-  border-radius: 0;
-  box-shadow: none;
-  gap: 2rem;
+  gap: 2.4rem;
+  margin-left: auto;
 }
 
 .nav-link {
-  font-size: 0.95rem;
-  font-weight: 600;
-  padding: 0.4rem 0;
-  border-radius: 0;
-  color: #2c4460;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #ffffff;
+  text-shadow: 0 1px 10px rgba(20, 45, 90, 0.25);
+  padding: 0.35rem 0;
   position: relative;
-  transition: var(--transition-fast);
 }
 
-.nav-link:hover {
-  color: var(--emci-blue);
+.is-scrolled .nav-link {
+  color: var(--text-dark);
+  text-shadow: none;
 }
 
-.nav-link.active {
-  background: transparent;
-  color: var(--emci-blue);
-  font-weight: 700;
-  box-shadow: none;
-}
-
-.nav-link.active::after {
+.nav-link::after {
   content: '';
   position: absolute;
-  bottom: -4px;
   left: 0;
-  width: 100%;
-  height: 2.5px;
-  background: var(--emci-blue);
-  border-radius: 2px;
+  bottom: -3px;
+  width: 0;
+  height: 2px;
+  background: currentColor;
+  transition: width var(--transition-smooth);
 }
 
-/* Botón Iniciar Proyecto */
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+.is-scrolled .nav-link.active {
+  color: var(--accent-deep);
+}
+
 .nav-cta {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.9rem;
 }
 
-/* Botón Ingreso / Acceso a Clientes */
-.btn-header-login {
-  padding: 0.62rem 1.35rem;
-  border-radius: var(--radius-full);
-  background: transparent;
-  color: var(--emci-blue);
-  font-size: 0.9rem;
-  font-weight: 700;
-  border: 1.5px solid var(--emci-blue);
+.btn-header-login,
+.btn-header,
+.btn-header-warm {
   display: inline-flex;
   align-items: center;
-  gap: 0.45rem;
+  padding: 0.62rem 1.2rem;
+  border-radius: var(--radius-btn);
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
   cursor: pointer;
   transition: var(--transition-fast);
-  text-decoration: none;
+}
+
+/* Botones planos: contorno blanco + cian del logo con texto azul marino */
+.btn-header-login {
+  color: #ffffff;
+  border: 2px solid #ffffff;
 }
 
 .btn-header-login:hover {
+  background: #ffffff;
+  color: var(--emci-navy);
+}
+
+.is-scrolled .btn-header-login {
+  color: var(--emci-blue);
+  border-color: var(--emci-blue);
+}
+
+.is-scrolled .btn-header-login:hover {
   background: var(--emci-blue);
   color: #ffffff;
-  box-shadow: 0 4px 15px rgba(13, 91, 199, 0.28);
-  transform: translateY(-2px);
 }
 
 .btn-header,
 .btn-header-warm {
-  padding: 0.65rem 1.6rem;
-  border-radius: var(--radius-full);
-  background: var(--btn-warm-orange);
-  color: #ffffff;
-  font-size: 0.92rem;
-  font-weight: 700;
-  border: none;
-  box-shadow: 0 4px 18px rgba(242, 142, 66, 0.45);
-  cursor: pointer;
-  transition: var(--transition-smooth);
+  color: var(--emci-navy);
+  background: var(--emci-cyan);
+  border: 2px solid var(--emci-cyan);
 }
 
 .btn-header:hover,
 .btn-header-warm:hover {
-  background: var(--btn-warm-orange-hover);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(242, 142, 66, 0.6);
+  background: var(--emci-cyan-light);
+  border-color: var(--emci-cyan-light);
 }
 
-/* Mobile Toggle */
 .mobile-toggle {
   display: none;
   flex-direction: column;
   gap: 5px;
-  background: #f1f5fa;
-  border: none;
-  border-radius: var(--radius-full);
-  padding: 0.65rem;
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: var(--radius-btn);
+  padding: 0.6rem;
   cursor: pointer;
 }
 
 .mobile-toggle span {
-  width: 22px;
-  height: 2.5px;
-  background: var(--emci-navy);
+  width: 20px;
+  height: 2px;
+  background: #ffffff;
   border-radius: 2px;
+}
+
+.is-scrolled .mobile-toggle {
+  background: transparent;
+  border-color: var(--border-strong);
+}
+
+.is-scrolled .mobile-toggle span {
+  background: var(--text-dark);
+}
+
+@media (max-width: 1100px) {
+  .nav-pill-group {
+    gap: 1.5rem;
+  }
+  .nav-link {
+    font-size: 0.8rem;
+  }
 }
 
 @media (max-width: 960px) {
@@ -181,18 +215,26 @@
     flex-direction: column;
     position: absolute;
     top: 100%;
-    left: 0;
-    right: 0;
-    padding: 1.5rem 2rem;
+    left: 1rem;
+    right: 1rem;
+    padding: 1.75rem 2rem;
     background: #ffffff;
-    border-bottom: 1px solid rgba(13, 91, 199, 0.1);
-    box-shadow: 0 15px 35px rgba(7, 23, 40, 0.2);
-    gap: 1.25rem;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 20px 50px rgba(20, 45, 90, 0.2);
+    gap: 1.3rem;
   }
 
   .nav-pill-group.open .nav-link {
     width: 100%;
     text-align: center;
-    padding: 0.5rem 0;
+    color: var(--text-dark);
+    text-shadow: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-container,
+  .nav-wrapper {
+    padding: 1rem 1.1rem;
   }
 }

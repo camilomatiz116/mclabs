@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ingreso al Portal | eMCi labs</title>
-  <meta name="description" content="Acceso seguro y privado al portal de clientes y bóveda de documentos de eMCi labs.">
+  <title>Portal de Clientes | eMCi labs</title>
+  <meta name="description" content="Acceso seguro al portal de clientes de eMCi labs.">
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/images/logo-tight.png">
@@ -12,7 +12,7 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@200;300;400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- Hoja de estilos modular -->
   <link rel="stylesheet" href="css/styles.css">
@@ -21,8 +21,8 @@
 
   <!-- Encabezado sutil para volver a inicio -->
   <header style="padding: 1.5rem 2rem; display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 10;">
-    <a href="index.html" class="brand-logo-pill" style="background:#ffffff; padding:0.4rem 1rem; border-radius:9999px; box-shadow:0 4px 15px rgba(0,0,0,0.2);">
-      <img src="assets/images/logo-tight.png" alt="eMCi labs Logo" width="130" height="34" style="height:34px; width:auto; display:block;">
+    <a href="index.html" class="brand-logo-pill">
+      <img class="logo-img" src="assets/images/logo-oscuro.png" alt="eMCi labs" width="800" height="402">
     </a>
     <a href="index.html" style="color: rgba(255, 255, 255, 0.8); font-size: 0.88rem; font-weight: 600; text-decoration: none; display: flex; align-items: center; gap: 0.4rem; transition: color 0.2s;" onmouseover="this.style.color='#26D0CE'" onmouseout="this.style.color='rgba(255, 255, 255, 0.8)'">
       ← Volver al Inicio
@@ -34,10 +34,10 @@
     <div class="login-card">
       <div class="login-header">
         <div class="login-brand-pill">
-          <img src="assets/images/logo-tight.png" alt="eMCi labs">
+          <img class="logo-img" src="assets/images/logo-oscuro.png" alt="eMCi labs" width="800" height="402">
         </div>
-        <h1 class="login-title">Ingreso al Portal</h1>
-        <p class="login-subtitle">Bóveda privada de documentación de software, contratos y especificaciones técnicas.</p>
+        <h1 class="login-title">Portal de Clientes</h1>
+        <p class="login-subtitle">Consulte la documentación, los contratos y las especificaciones técnicas de su proyecto.</p>
       </div>
 
       <!-- Alertas de estado -->
@@ -46,7 +46,7 @@
       <!-- Formulario de Acceso -->
       <form id="loginForm" class="login-form" novalidate>
         <div class="form-group">
-          <label class="form-label" for="loginEmail">Usuario / Correo Electrónico</label>
+          <label class="form-label" for="loginEmail">Correo electrónico</label>
           <div class="form-input-wrapper">
             <input type="email" id="loginEmail" class="form-input" placeholder="camilomatiz114@gmail.com" value="camilomatiz114@gmail.com" required autocomplete="email">
           </div>
@@ -72,11 +72,11 @@
             <input type="checkbox" id="rememberMe" checked style="accent-color: var(--emci-cyan); cursor: pointer;">
             Recordar sesión
           </label>
-          <span style="color: var(--emci-cyan); font-size: 0.8rem; font-weight: 600;">SSL 256-Bit</span>
+          <span style="color: var(--emci-cyan); font-size: 0.8rem; font-weight: 600;">Conexión segura</span>
         </div>
 
         <button type="submit" id="btnSubmitLogin" class="login-btn-submit">
-          <span>Ingresar a la Bóveda</span>
+          <span>Ingresar</span>
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
             <line x1="5" y1="12" x2="19" y2="12"></line>
             <polyline points="12 5 19 12 12 19"></polyline>
@@ -85,14 +85,14 @@
       </form>
 
       <div class="login-footer-info">
-        <p style="margin-bottom: 0.4rem;">Acceso restringido a clientes y directores de proyecto.</p>
-        <p style="color: rgba(255, 255, 255, 0.5); font-size: 0.78rem;">Soporte directo: <a href="mailto:contacto@emcilabs.com">contacto@emcilabs.com</a></p>
+        <p style="margin-bottom: 0.4rem;">Acceso exclusivo para clientes y líderes de proyecto.</p>
+        <p style="color: rgba(255, 255, 255, 0.5); font-size: 0.78rem;">Soporte: <a href="mailto:contacto@emcilabs.com">contacto@emcilabs.com</a></p>
       </div>
     </div>
   </main>
 
   <footer style="padding: 1.5rem; text-align: center; color: rgba(255, 255, 255, 0.5); font-size: 0.8rem; position: relative; z-index: 5;">
-    &copy; 2026 eMCi labs. Sistema de Control Documental Confidencial.
+    &copy; 2026 eMCi labs. Todos los derechos reservados.
   </footer>
 
   <script>
@@ -139,12 +139,12 @@
         const VALID_PASS = '19851958Moi*';
 
         if (!email || !password) {
-          showAlert('Por favor ingresa usuario y contraseña.', 'error');
+          showAlert('Ingrese su correo y contraseña.', 'error');
           return;
         }
 
         if (email.toLowerCase() === VALID_EMAIL.toLowerCase() && password === VALID_PASS) {
-          showAlert('Credenciales correctas. Accediendo a la Bóveda...', 'success');
+          showAlert('Credenciales verificadas. Ingresando al portal...', 'success');
           submitBtn.disabled = true;
           submitBtn.innerHTML = `
             <span>Accediendo...</span>
@@ -163,7 +163,7 @@
             window.location.href = 'portal.html';
           }, 600);
         } else {
-          showAlert('Usuario o contraseña incorrectos. Verifica tus credenciales.', 'error');
+          showAlert('Correo o contraseña incorrectos. Verifique sus datos e intente de nuevo.', 'error');
           passwordInput.value = '';
           passwordInput.focus();
         }

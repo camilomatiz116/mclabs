@@ -1,5 +1,5 @@
 /**
- * eMCi labs - Contact form handling (sends directly to camilomatiz114@gmail.com)
+ * eMCi labs - Contact form handling (sends directly to cycor182@hotmail.com)
  */
 export function initContactForm() {
   const form = document.getElementById('contactForm');
@@ -31,8 +31,8 @@ export function initContactForm() {
     `;
 
     try {
-      // Submitting via FormSubmit AJAX endpoint targeted to camilomatiz114@gmail.com
-      const response = await fetch('https://formsubmit.co/ajax/camilomatiz114@gmail.com', {
+      // Submitting via FormSubmit AJAX endpoint targeted to cycor182@hotmail.com
+      const response = await fetch('https://formsubmit.co/ajax/cycor182@hotmail.com', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -57,7 +57,7 @@ export function initContactForm() {
     } catch (err) {
       console.warn('Fallback a envío directo:', err);
       // Fallback: Opens user's mail client directly prefilled to contacto@emcilabs.com
-      const mailtoUrl = `mailto:contacto@emcilabs.com?subject=Consulta Web eMCi labs de ${encodeURIComponent(name)}&body=${encodeURIComponent("Nombre: " + name + "\nEmail: " + email + "\n\nMensaje:\n" + message)}`;
+      const mailtoUrl = `mailto:cycor182@hotmail.com?subject=Consulta Web eMCi labs de ${encodeURIComponent(name)}&body=${encodeURIComponent("Nombre: " + name + "\nEmail: " + email + "\n\nMensaje:\n" + message)}`;
       window.location.href = mailtoUrl;
       showStatus('Abriendo tu gestor de correo para enviar tu mensaje...', 'success');
     } finally {

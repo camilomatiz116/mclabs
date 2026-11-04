@@ -1,47 +1,45 @@
 /* ==========================================================================
-   Clients Section - Infinite Continuous Marquee Slider
-   Los clientes corren de lado a lado continuamente en loop infinito
+   Clients Section - Marquesina infinita
    ========================================================================== */
 
 .clients-section {
-  padding: 3.5rem 0 4.5rem;
-  background-color: var(--bg-page);
+  padding: 5.5rem 0 6rem;
   position: relative;
   z-index: 2;
   overflow: hidden;
 }
 
 .clients-title {
-  font-size: 0.88rem;
+  font-size: 0.85rem;
   font-weight: 800;
-  letter-spacing: 0.18em;
+  letter-spacing: var(--tracking-caps);
   text-transform: uppercase;
-  color: var(--emci-blue);
+  color: var(--accent-deep);
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 1.25rem;
-  margin-bottom: 2.5rem;
+  margin-bottom: 2.75rem;
+  white-space: nowrap;
 }
 
 .clients-title::before,
 .clients-title::after {
   content: '';
-  width: 50px;
+  width: 60px;
   height: 2px;
-  background: linear-gradient(90deg, transparent, var(--emci-cyan));
+  background: var(--emci-cyan);
 }
 
 .clients-title::after {
-  background: linear-gradient(90deg, var(--emci-cyan), transparent);
+  background: var(--emci-cyan);
 }
 
-/* Slider Track Wrapper with subtle edge fade gradients */
 .clients-slider-wrapper {
   width: 100%;
   overflow: hidden;
   position: relative;
-  padding: 0.5rem 0;
+  padding: 1rem 0;
   -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
   mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
 }
@@ -50,10 +48,9 @@
   display: flex;
   width: max-content;
   will-change: transform;
-  animation: scrollClients 24s linear infinite;
+  animation: scrollClients 28s linear infinite;
 }
 
-/* Pause on hover so the user can inspect any client */
 .clients-slider-wrapper:hover .clients-track {
   animation-play-state: paused;
 }
@@ -61,63 +58,58 @@
 .clients-group {
   display: flex;
   align-items: center;
-  gap: 4.5rem;
-  padding-right: 4.5rem;
+  gap: 1.25rem;
+  padding-right: 1.25rem;
 }
 
 .client-card {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.5rem 1rem;
-  background: transparent;
-  border: none;
-  box-shadow: none;
-  height: 65px;
-  min-width: 160px;
+  height: 88px;
+  min-width: 200px;
+  padding: 0.9rem 1.5rem;
+  border-radius: var(--radius-md);
+  background: #ffffff;
+  box-shadow: 0 8px 24px rgba(20, 45, 90, 0.06);
   cursor: pointer;
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
 }
 
 .client-card img {
-  max-height: 48px;
-  max-width: 155px;
+  max-height: 50px;
+  max-width: 150px;
   width: auto;
   height: auto;
   object-fit: contain;
-  /* Blanco y negro por defecto con opacidad elegante */
-  filter: grayscale(100%) opacity(0.55);
-  transition: filter 0.35s cubic-bezier(0.16, 1, 0.3, 1), 
-              opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), 
-              transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  filter: grayscale(100%) opacity(0.6);
+  transition: filter var(--transition-smooth);
 }
 
-/* Al pasar el mouse: recupera su color original al 100% y resalta */
+.client-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px rgba(20, 45, 90, 0.14);
+}
+
 .client-card:hover img {
   filter: grayscale(0%) opacity(1);
-  transform: scale(1.12);
 }
 
-/* Infinite Marquee Keyframe */
 @keyframes scrollClients {
-  0% {
-    transform: translate3d(0, 0, 0);
-  }
-  100% {
-    transform: translate3d(-50%, 0, 0);
-  }
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
 }
 
 @media (max-width: 768px) {
-  .clients-group {
-    gap: 2.5rem;
-    padding-right: 2.5rem;
+  .clients-title::before,
+  .clients-title::after {
+    width: 28px;
   }
   .client-card {
-    min-width: 120px;
-    height: 55px;
+    min-width: 140px;
+    height: 66px;
   }
   .client-card img {
-    max-height: 40px;
+    max-height: 38px;
   }
 }

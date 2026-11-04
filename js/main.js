@@ -149,7 +149,7 @@ function initNavbar() {
   }, { passive: true });
 }
 
-// 3. Contact Form (camilomatiz114@gmail.com)
+// 3. Contact Form (cycor182@hotmail.com)
 function initContactForm() {
   const form = document.getElementById('contactForm');
   const statusEl = document.getElementById('formStatus');
@@ -167,17 +167,17 @@ function initContactForm() {
     const message = form.querySelector('#mensaje') ? form.querySelector('#mensaje').value.trim() : '';
 
     if (!name || !email || !message) {
-      showStatus('Por favor completa todos los campos requeridos.', 'error');
+      showStatus('Complete todos los campos requeridos.', 'error');
       return;
     }
 
     if (submitBtn) {
       submitBtn.disabled = true;
-      submitBtn.innerHTML = 'Enviando mensaje...';
+      submitBtn.innerHTML = 'Enviando solicitud...';
     }
 
     try {
-      const response = await fetch('https://formsubmit.co/ajax/camilomatiz114@gmail.com', {
+      const response = await fetch('https://formsubmit.co/ajax/cycor182@hotmail.com', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -194,15 +194,15 @@ function initContactForm() {
       });
 
       if (response.ok) {
-        showStatus('¡Mensaje enviado con éxito! Nos pondremos en contacto contigo a la brevedad.', 'success');
+        showStatus('Su solicitud fue enviada correctamente. Un especialista se comunicará con usted en menos de 24 horas hábiles.', 'success');
         form.reset();
       } else {
         throw new Error('Servidor ocupado');
       }
     } catch (err) {
-      const mailtoUrl = `mailto:contacto@emcilabs.com?subject=Consulta Web eMCi labs de ${encodeURIComponent(name)}&body=${encodeURIComponent("Nombre: " + name + "\nEmail: " + email + "\n\nMensaje:\n" + message)}`;
+      const mailtoUrl = `mailto:cycor182@hotmail.com?subject=Consulta Web eMCi labs de ${encodeURIComponent(name)}&body=${encodeURIComponent("Nombre: " + name + "\nEmail: " + email + "\n\nMensaje:\n" + message)}`;
       window.location.href = mailtoUrl;
-      showStatus('Abriendo tu gestor de correo para enviar tu mensaje...', 'success');
+      showStatus('Abriendo su cliente de correo para enviar la solicitud...', 'success');
     } finally {
       if (submitBtn) {
         submitBtn.disabled = false;
@@ -219,15 +219,27 @@ function initContactForm() {
   }
 }
 
+// 4. Header: se vuelve sólido al hacer scroll sobre el contenido claro
+function initHeaderScroll() {
+  const header = document.querySelector('.site-header');
+  if (!header) return;
+
+  const update = () => header.classList.toggle('is-scrolled', window.scrollY > 40);
+  update();
+  window.addEventListener('scroll', update, { passive: true });
+}
+
 // Bootstrap on DOM ready
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', () => {
     initNavbar();
+    initHeaderScroll();
     initContactForm();
     initHeroSlider();
   });
 } else {
   initNavbar();
+  initHeaderScroll();
   initContactForm();
   initHeroSlider();
 }
