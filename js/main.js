@@ -254,10 +254,10 @@ function initLazyVideos() {
 // 6. Precarga el video principal de la página destino al pasar el mouse (o tocar) un enlace
 //    del menú, para que al cambiar de pestaña el video ya esté descargándose.
 const PAGE_HERO_VIDEOS = {
-  'index.html': 'assets/video/bogota.mp4',
-  'about.html': 'assets/video/founders.mp4',
-  'services.html': 'assets/video/hero.mp4',
-  'contact.html': 'assets/video/servicios-hero.mp4'
+  'index.html': 'assets/video/bogota.mp4?v=2',
+  'about.html': 'assets/video/founders.mp4?v=2',
+  'services.html': 'assets/video/hero.mp4?v=2',
+  'contact.html': 'assets/video/servicios-hero.mp4?v=2'
 };
 
 function initVideoPrefetch() {
