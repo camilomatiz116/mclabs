@@ -3,26 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nosotros · Socios Fundadores | eMCi labs</title>
+  <title>Equipo · Socios Fundadores | eMCi labs</title>
   <meta name="description" content="Conozca a los socios fundadores de eMCi labs y cómo su experiencia en dirección empresarial, ingeniería y producto digital se aplica a cada desarrollo.">
   <link rel="icon" type="image/jpeg" href="assets/images/logo.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@200;300;400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="preload" as="image" href="assets/images/posters/founders.jpg" fetchpriority="high">
+  <link rel="stylesheet" href="css/styles.css?v=20261104c">
 </head>
-<body class="page-aurora">
+<body class="about-page">
 
   <!-- Header Flotante -->
-  <header class="site-header">
-    <div class="nav-wrapper">
-      <a href="index.html" class="brand-logo" aria-label="eMCi labs Inicio">
+  <header class="site-header site-header--split">
+    <div class="header-container">
+      <a href="index.html" class="brand-logo-pill" aria-label="eMCi labs Inicio">
         <img class="logo-img logo-for-dark" src="assets/images/logo-oscuro.png" alt="eMCi labs" width="800" height="402"><img class="logo-img logo-for-light" src="assets/images/logo-claro.png" alt="" aria-hidden="true" width="800" height="396">
       </a>
 
       <nav class="nav-pill-group" aria-label="Navegación principal">
         <a href="index.html" class="nav-link">Inicio</a>
-        <a href="about.html" class="nav-link active">Nosotros</a>
+        <a href="about.html" class="nav-link active">Equipo</a>
         <a href="services.html" class="nav-link">Servicios</a>
         <a href="contact.html" class="nav-link">Contacto</a>
       </nav>
@@ -37,19 +38,62 @@
     </div>
   </header>
 
-  <main class="about-page-main">
-    <div class="container">
-      <div class="section-header">
-        <div class="badge-pill-dark">
-          <span class="badge-dot-dark"></span>
-          Nosotros
+  <main class="about-page-main about-page-main--hero">
+
+    <!-- HERO: mismo banner de video que Servicios -->
+    <section class="svc-hero" aria-labelledby="about-hero-title">
+      <video class="svc-hero-video" autoplay muted loop playsinline preload="auto" poster="assets/images/posters/founders.jpg" aria-hidden="true">
+        <source src="assets/video/founders.mp4" type="video/mp4">
+      </video>
+      <div class="container svc-hero-inner">
+        <p class="svc-kicker">Equipo</p>
+        <h1 id="about-hero-title" class="svc-hero-title">Socios fundadores<br>que han dirigido<br><span>empresas reales.</span></h1>
+        <p class="svc-hero-text">eMCi labs une más de 18 años de dirección empresarial e ingeniería con más de una década de diseño y desarrollo de producto digital.</p>
+        <div class="svc-hero-actions">
+          <a href="contact.html" class="btn-pill btn-pill--cyan">Solicitar propuesta</a>
+          <a href="#fundadores" class="btn-pill btn-pill--ghost">Conocer al equipo</a>
         </div>
-        <h2>Socios fundadores</h2>
-        <p>eMCi labs une más de 18 años de dirección empresarial e ingeniería con más de una década de diseño y desarrollo de producto digital.</p>
       </div>
+    </section>
+
+    <div class="container" id="fundadores">
 
       <!-- Socios fundadores -->
       <div class="founders-grid">
+
+        <article class="founder-card">
+          <div class="founder-cover"></div>
+          <a class="founder-avatar" href="https://www.linkedin.com/in/carlos-y-corzo-cardenas-2587b09" target="_blank" rel="noopener" aria-label="Ver el perfil de LinkedIn de Carlos Corzo">
+            <img src="assets/images/team/carlos-corzo.jpg" alt="Carlos Corzo, socio fundador de eMCi labs" width="900" height="1034" loading="lazy">
+            <span class="avatar-badge" aria-hidden="true">in</span>
+          </a>
+          <div class="founder-body">
+            <p class="founder-role">Socio fundador · Dirección y estrategia</p>
+            <h3 class="founder-name">Carlos Corzo</h3>
+            <p class="founder-title">Ingeniero en Energía · MBA</p>
+            <p class="founder-bio">Gerente con más de 18 años de trayectoria en dirección estratégica, gestión comercial internacional y proyectos de ingeniería para el sector industrial y comercial. Ha liderado equipos y clientes desde México hasta Argentina.</p>
+
+            <ul class="founder-timeline">
+              <li><span class="ft-years">2019 — hoy</span><span class="ft-role">Gerente General <em>DISPROEL S.A.</em></span></li>
+              <li><span class="ft-years">2015 — 2019</span><span class="ft-role">Gerente de Iluminación <em>Redes Eléctricas S.A.</em></span></li>
+              <li><span class="ft-years">2013 — 2015</span><span class="ft-role">Director Comercial <em>DISPROEL S.A.</em></span></li>
+              <li><span class="ft-years">2010 — 2013</span><span class="ft-role">Jefe de Proyectos <em>DISPROEL S.A.</em></span></li>
+              <li><span class="ft-years">2008 — 2010</span><span class="ft-role">Auditor en Energía <em>JC Ingeniería</em></span></li>
+            </ul>
+
+            <div class="founder-tags">
+              <span class="tech-tag">Dirección estratégica</span>
+              <span class="tech-tag">Gestión comercial</span>
+              <span class="tech-tag">Proyectos de ingeniería</span>
+              <span class="tech-tag">Eficiencia energética</span>
+            </div>
+
+            <div class="founder-footer">
+              <span class="founder-edu">MBA · EUDE Madrid &nbsp;|&nbsp; Ingeniería en Energía · UNAB</span>
+              <a class="founder-link" href="https://www.linkedin.com/in/carlos-y-corzo-cardenas-2587b09" target="_blank" rel="noopener">LinkedIn →</a>
+            </div>
+          </div>
+        </article>
 
         <article class="founder-card">
           <div class="founder-cover"></div>
@@ -82,40 +126,6 @@
                 <a class="founder-link" href="https://www.linkedin.com/in/camilo-matiz-3382ba74/" target="_blank" rel="noopener">LinkedIn →</a>
                 <a class="founder-link" href="https://www.camilovisual.com" target="_blank" rel="noopener">Portafolio →</a>
               </span>
-            </div>
-          </div>
-        </article>
-
-        <article class="founder-card">
-          <div class="founder-cover"></div>
-          <a class="founder-avatar" href="https://www.linkedin.com/in/carlos-y-corzo-cardenas-2587b09" target="_blank" rel="noopener" aria-label="Ver el perfil de LinkedIn de Carlos Corzo">
-            <img src="assets/images/team/carlos-corzo.jpg" alt="Carlos Corzo, socio fundador de eMCi labs" width="900" height="1034" loading="lazy">
-            <span class="avatar-badge" aria-hidden="true">in</span>
-          </a>
-          <div class="founder-body">
-            <p class="founder-role">Socio fundador · Dirección y estrategia</p>
-            <h3 class="founder-name">Carlos Corzo</h3>
-            <p class="founder-title">Ingeniero en Energía · MBA</p>
-            <p class="founder-bio">Gerente con más de 18 años de trayectoria en dirección estratégica, gestión comercial internacional y proyectos de ingeniería para el sector industrial y comercial. Ha liderado equipos y clientes desde México hasta Argentina.</p>
-
-            <ul class="founder-timeline">
-              <li><span class="ft-years">2019 — hoy</span><span class="ft-role">Gerente General <em>DISPROEL S.A.</em></span></li>
-              <li><span class="ft-years">2015 — 2019</span><span class="ft-role">Gerente de Iluminación <em>Redes Eléctricas S.A.</em></span></li>
-              <li><span class="ft-years">2013 — 2015</span><span class="ft-role">Director Comercial <em>DISPROEL S.A.</em></span></li>
-              <li><span class="ft-years">2010 — 2013</span><span class="ft-role">Jefe de Proyectos <em>DISPROEL S.A.</em></span></li>
-              <li><span class="ft-years">2008 — 2010</span><span class="ft-role">Auditor en Energía <em>JC Ingeniería</em></span></li>
-            </ul>
-
-            <div class="founder-tags">
-              <span class="tech-tag">Dirección estratégica</span>
-              <span class="tech-tag">Gestión comercial</span>
-              <span class="tech-tag">Proyectos de ingeniería</span>
-              <span class="tech-tag">Eficiencia energética</span>
-            </div>
-
-            <div class="founder-footer">
-              <span class="founder-edu">MBA · EUDE Madrid &nbsp;|&nbsp; Ingeniería en Energía · UNAB</span>
-              <a class="founder-link" href="https://www.linkedin.com/in/carlos-y-corzo-cardenas-2587b09" target="_blank" rel="noopener">LinkedIn →</a>
             </div>
           </div>
         </article>
@@ -201,7 +211,7 @@
             <h5>Navegación</h5>
             <ul>
               <li><a href="index.html">Inicio</a></li>
-              <li><a href="about.html">Nosotros</a></li>
+              <li><a href="about.html">Equipo</a></li>
               <li><a href="services.html">Servicios</a></li>
               <li><a href="login.html">Portal de Clientes</a></li>
               <li><a href="contact.html">Contacto</a></li>
@@ -238,6 +248,6 @@
     </div>
   </footer>
 
-  <script defer src="js/main.js"></script>
+  <script defer src="js/main.js?v=20261104c"></script>
 </body>
 </html>

@@ -229,6 +229,62 @@ function initHeaderScroll() {
   window.addEventListener('scroll', update, { passive: true });
 }
 
+// 5. Videos diferidos: se descargan y reproducen solo cuando están en pantalla
+function initLazyVideos() {
+  const videos = document.querySelectorAll('video.lazy-video[data-src]');
+  if (!videos.length) return;
+
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduceMotion || !('IntersectionObserver' in window)) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(({ target: video, isIntersecting }) => {
+      if (isIntersecting) {
+        if (!video.src) video.src = video.dataset.src;
+        video.play().catch(() => {});
+      } else if (video.src) {
+        video.pause();
+      }
+    });
+  }, { rootMargin: '200px 0px' });
+
+  videos.forEach(video => observer.observe(video));
+}
+
+// 6. Precarga el video principal de la página destino al pasar el mouse (o tocar) un enlace
+//    del menú, para que al cambiar de pestaña el video ya esté descargándose.
+const PAGE_HERO_VIDEOS = {
+  'index.html': 'assets/video/bogota.mp4',
+  'about.html': 'assets/video/founders.mp4',
+  'services.html': 'assets/video/hero.mp4',
+  'contact.html': 'assets/video/servicios-hero.mp4'
+};
+
+function initVideoPrefetch() {
+  const saveData = navigator.connection && navigator.connection.saveData;
+  if (saveData) return;
+
+  const prefetched = new Set();
+  const prefetch = (href) => {
+    const page = (href || '').split('#')[0].split('/').pop() || 'index.html';
+    const video = PAGE_HERO_VIDEOS[page];
+    if (!video || prefetched.has(video) || location.pathname.endsWith(page)) return;
+    prefetched.add(video);
+    const link = document.createElement('link');
+    link.rel = 'prefetch';
+    link.as = 'video';
+    link.href = video;
+    document.head.appendChild(link);
+  };
+
+  document.querySelectorAll('a[href$=".html"], a[href*=".html#"]').forEach(a => {
+    const handler = () => prefetch(a.getAttribute('href'));
+    a.addEventListener('mouseenter', handler, { passive: true });
+    a.addEventListener('touchstart', handler, { passive: true });
+    a.addEventListener('focus', handler);
+  });
+}
+
 // Bootstrap on DOM ready
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', () => {
@@ -236,10 +292,14 @@ if (document.readyState === 'loading') {
     initHeaderScroll();
     initContactForm();
     initHeroSlider();
+    initLazyVideos();
+    initVideoPrefetch();
   });
 } else {
   initNavbar();
   initHeaderScroll();
   initContactForm();
   initHeroSlider();
+  initLazyVideos();
+  initVideoPrefetch();
 }

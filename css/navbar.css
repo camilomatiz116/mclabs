@@ -238,3 +238,22 @@
     padding: 1rem 1.1rem;
   }
 }
+
+/* En Contacto el botón "Solicitar Propuesta" se oculta pero conserva su espacio,
+   para que el menú quede exactamente en el mismo lugar en todas las páginas */
+.btn-header--placeholder {
+  visibility: hidden;
+}
+
+/* Anchos fijos en los botones de la derecha: el menú se ancla a ellos, así que no debe
+   correrse mientras la fuente termina de cargar al cambiar de página */
+@media (min-width: 961px) {
+  .nav-cta .btn-header-login,
+  .nav-cta .btn-header {
+    box-sizing: border-box;
+    justify-content: center;
+    white-space: nowrap;
+  }
+  .nav-cta .btn-header-login { width: 104px; }
+  .nav-cta .btn-header { width: 200px; }
+}

@@ -12,10 +12,11 @@
   <!-- Google Fonts: Sora (display) & Manrope (texto) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@200;300;400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@200;300;400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
 
   <!-- Hoja de estilos modular -->
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="preload" as="image" href="assets/images/posters/bogota.jpg" fetchpriority="high">
+  <link rel="stylesheet" href="css/styles.css?v=20261104c">
 </head>
 <body>
 
@@ -27,7 +28,7 @@
 
       <nav class="nav-pill-group" aria-label="Navegación principal">
         <a href="index.html" class="nav-link active">Inicio</a>
-        <a href="about.html" class="nav-link">Nosotros</a>
+        <a href="about.html" class="nav-link">Equipo</a>
         <a href="services.html" class="nav-link">Servicios</a>
         <a href="contact.html" class="nav-link">Contacto</a>
       </nav>
@@ -107,13 +108,13 @@
 
       <!-- Foto con frase protagonista; la "O" es la esfera con el logo -->
       <div class="hero-visual">
-        <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="assets/images/hero-bg.jpg" aria-hidden="true">
+        <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="assets/images/posters/bogota.jpg" aria-hidden="true">
           <source src="assets/video/bogota.mp4" type="video/mp4">
         </video>
         <div class="hero-statement">
           <p class="statement-kicker">Tecnología confiable para empresas que buscan</p>
           <p class="statement-word" aria-label="Resultados.">
-            <span aria-hidden="true">RESULTAD</span><span class="o-circle" aria-hidden="true"><img src="assets/images/logo-claro.png" alt="" width="800" height="396"></span><span aria-hidden="true">S<span class="statement-dot">.</span></span>
+            <span aria-hidden="true">Resultad</span><span class="o-circle" aria-hidden="true"><img src="assets/images/logo-claro.png" alt="" width="800" height="396"></span><span aria-hidden="true">s<span class="statement-dot">.</span></span>
           </p>
         </div>
       </div>
@@ -197,7 +198,7 @@
             <h5>Navegación</h5>
             <ul>
               <li><a href="index.html">Inicio</a></li>
-              <li><a href="about.html">Nosotros</a></li>
+              <li><a href="about.html">Equipo</a></li>
               <li><a href="services.html">Servicios</a></li>
               <li><a href="login.html">Portal de Clientes</a></li>
               <li><a href="contact.html">Contacto</a></li>
@@ -238,6 +239,6 @@
     <a href="https://wa.me/573143881262?text=Hola%2C%20quisiera%20agendar%20una%20reuni%C3%B3n%20con%20eMCi%20labs." class="fc-primary" target="_blank" rel="noopener">Agendar una reunión</a>
   </div>
 
-  <script defer src="js/main.js"></script>
+  <script defer src="js/main.js?v=20261104c"></script>
 </body>
 </html>

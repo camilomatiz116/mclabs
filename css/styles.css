@@ -3,14 +3,14 @@
    Importing each module cleanly and separately
    ========================================================================== */
 
-@import './variables.css';
-@import './base.css';
-@import './navbar.css';
-@import './hero.css';
-@import './clients.css';
-@import './about.css';
-@import './services.css';
-@import './contact.css';
-@import './footer.css';
-@import './portal.css';
-@import './presentations.css';
+@import './variables.css?v=20261104c';
+@import './base.css?v=20261104c';
+@import './navbar.css?v=20261104c';
+@import './hero.css?v=20261104c';
+@import './clients.css?v=20261104c';
+@import './about.css?v=20261104c';
+@import './services.css?v=20261104c';
+@import './contact.css?v=20261104c';
+@import './footer.css?v=20261104c';
+@import './portal.css?v=20261104c';
+@import './presentations.css?v=20261104c';

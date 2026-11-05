@@ -445,3 +445,13 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* Con banner de video arriba: el contenido arranca bajo el hero */
+.about-page-main--hero {
+  padding-top: 0;
+}
+
+.about-page-main--hero > .container {
+  padding-top: 7rem;
+  scroll-margin-top: 4rem;
+}
