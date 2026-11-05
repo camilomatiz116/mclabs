@@ -90,7 +90,7 @@ if ($KeyPath -ne "" -and (Test-Path $KeyPath)) {
 
 # 4. Ejecutar comandos remotos en el servidor
 Write-Step "Paso 4: Actualizando servidor de producción ($Server)..."
-$remoteCommand = "cd $RemotePath && git pull origin main && chown -R www-data:www-data $RemotePath && chmod -R 755 $RemotePath && systemctl reload nginx && echo 'DEPLOY_COMPLETE_OK'"
+$remoteCommand = "cd $RemotePath && git fetch origin main && git reset --hard origin/main && chown -R www-data:www-data $RemotePath && chmod -R 755 $RemotePath && systemctl reload nginx && echo 'DEPLOY_COMPLETE_OK'"
 
 $sshTarget = "$User@$Server"
 $allArgs = $sshArgs + @($sshTarget, $remoteCommand)

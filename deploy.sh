@@ -43,7 +43,7 @@ fi
 
 # 4. Ejecutar comandos remotos
 echo "===> Paso 3: Actualizando servidor de producción (${SERVER})..."
-REMOTE_CMD="cd ${REMOTE_PATH} && git pull origin main && chown -R www-data:www-data ${REMOTE_PATH} && chmod -R 755 ${REMOTE_PATH} && systemctl reload nginx && echo 'DEPLOY_COMPLETE_OK'"
+REMOTE_CMD="cd ${REMOTE_PATH} && git fetch origin main && git reset --hard origin/main && chown -R www-data:www-data ${REMOTE_PATH} && chmod -R 755 ${REMOTE_PATH} && systemctl reload nginx && echo 'DEPLOY_COMPLETE_OK'"
 
 ssh -p ${PORT} -o StrictHostKeyChecking=accept-new ${SSH_KEY_FLAG} "${USER}@${SERVER}" "${REMOTE_CMD}"
 
