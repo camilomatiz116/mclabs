@@ -306,3 +306,27 @@
     width: 100%;
   }
 }
+
+/* ---------- Celular: títulos de banner sin cortes forzados ---------- */
+@media (max-width: 760px) {
+  .svc-hero-title br {
+    display: none;
+  }
+  .svc-hero-title {
+    font-size: clamp(2.3rem, 10.5vw, 3.2rem);
+    line-height: 1.04;
+  }
+  .svc-hero-text {
+    font-size: 1.02rem;
+  }
+  .svc-hero {
+    padding-top: 7.5rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .svc-list { padding: 4rem 0 2rem; }
+  .svc-list-head { margin-bottom: 2.5rem; }
+  .svc-row { padding: 2.5rem 0; }
+  .svc-cta { padding: 4rem 0; }
+}

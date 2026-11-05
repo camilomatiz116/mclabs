@@ -239,3 +239,10 @@
     width: 100%;
   }
 }
+
+/* Celular: logo del menú más compacto (en todas las páginas) */
+@media (max-width: 760px) {
+  .site-header--split .logo-img { height: 46px; }
+  .site-header--split.is-scrolled .logo-img { height: 40px; }
+  .site-header--split .header-container { padding-left: 1.1rem; }
+}

@@ -216,3 +216,26 @@ textarea.form-control {
   padding-top: 7rem;
   scroll-margin-top: 4rem;
 }
+
+/* Celular: el formulario aprovecha todo el ancho */
+@media (max-width: 560px) {
+  .contact-page-main--hero > .container {
+    padding-top: 3rem;
+  }
+  .contact-wrapper {
+    padding: 1.6rem 1.1rem;
+    gap: 2rem;
+    border-radius: var(--radius-lg);
+  }
+  .contact-form-card {
+    padding: 1.4rem 1.1rem;
+  }
+  .btn-submit {
+    padding: 1rem 1.2rem;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+  }
+  .contact-info-header h2 {
+    font-size: 2rem;
+  }
+}

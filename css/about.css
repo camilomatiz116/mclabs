@@ -455,3 +455,10 @@
   padding-top: 7rem;
   scroll-margin-top: 4rem;
 }
+
+/* Celular: menos espacio entre el banner y las tarjetas */
+@media (max-width: 560px) {
+  .about-page-main--hero > .container {
+    padding-top: 3.5rem;
+  }
+}
